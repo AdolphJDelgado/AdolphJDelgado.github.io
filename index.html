@@ -12,17 +12,20 @@
 
   <style>
     :root {
-      --ink: #24201d;
-      --ink-strong: #0f1114;
-      --muted: #665b52;
-      --canvas: #101113;
-      --panel: #fffdf9;
-      --panel-soft: #f8efe3;
-      --line: #dccab6;
-      --accent: #c49350;
-      --accent-2: #263624;
-      --accent-soft: #f4e4ce;
-      --shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+      --black: #08090b;
+      --black-2: #111317;
+      --panel: #fbf8f2;
+      --panel-2: #f1e8db;
+      --line: rgba(250, 244, 234, 0.18);
+      --line-dark: #ddcfbd;
+      --text: #f9f3ea;
+      --text-dark: #1e1c19;
+      --muted: #bdb4a8;
+      --muted-dark: #6e6258;
+      --gold: #c49350;
+      --gold-soft: #f3dfc2;
+      --green: #263624;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
       --radius: 10px;
       --container: 1140px;
     }
@@ -39,40 +42,40 @@
 
     body {
       margin: 0;
-      color: var(--ink);
       background:
-        radial-gradient(circle at 8% 8%, rgba(196, 147, 80, 0.2), transparent 24%),
-        radial-gradient(circle at 94% 10%, rgba(38, 54, 36, 0.38), transparent 28%),
-        var(--canvas);
-      border-top: 6px solid #050505;
+        radial-gradient(circle at 12% 12%, rgba(196, 147, 80, 0.18), transparent 26%),
+        radial-gradient(circle at 85% 4%, rgba(38, 54, 36, 0.34), transparent 30%),
+        var(--black);
+      color: var(--text);
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       font-size: 16px;
       line-height: 1.65;
       letter-spacing: 0;
     }
 
-    img {
+    img,
+    svg {
       display: block;
       max-width: 100%;
-    }
-
-    [hidden] {
-      display: none !important;
     }
 
     a {
       color: inherit;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     .skip-link {
       position: absolute;
-      left: 16px;
+      left: 18px;
       top: 14px;
-      z-index: 20;
+      z-index: 100;
       padding: 10px 14px;
-      color: #ffffff;
-      background: var(--ink-strong);
       border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--text-dark);
       transform: translateY(-150%);
     }
 
@@ -80,131 +83,465 @@
       transform: translateY(0);
     }
 
-    .page {
+    .container {
       width: min(100% - 40px, var(--container));
       margin: 0 auto;
-      padding: 20px 0 34px;
-      display: grid;
-      grid-template-columns: 254px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
     }
 
-    .sidebar {
+    .site-header {
       position: sticky;
-      top: 18px;
-      display: grid;
-      gap: 14px;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(250, 244, 234, 0.12);
+      background: rgba(8, 9, 11, 0.82);
+      backdrop-filter: blur(16px);
     }
 
-    .panel,
-    .sidebar-card {
-      background: var(--panel);
-      border: 1px solid rgba(216, 223, 235, 0.86);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .profile-card {
-      padding: 20px 18px 16px;
-      text-align: center;
-    }
-
-    .avatar {
-      width: 126px;
-      height: 126px;
-      margin: 2px auto 18px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border: 8px solid #f7f9fd;
-      border-radius: 999px;
-      background:
-        linear-gradient(135deg, rgba(196, 147, 80, 0.18), rgba(38, 54, 36, 0.1)),
-        #f4eadc;
-      color: var(--ink-strong);
-      font-size: 2.6rem;
-      font-weight: 760;
-      box-shadow: inset 0 0 0 1px rgba(49, 95, 143, 0.08);
-      animation: avatarSettle 650ms ease both;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .avatar span {
-      display: grid;
-      place-items: center;
-      width: 100%;
-      height: 100%;
-    }
-
-    .profile-card h1 {
-      margin: 0;
-      color: var(--ink-strong);
-      font-size: 1.3rem;
-      line-height: 1.25;
-    }
-
-    .profile-card p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .side-nav {
-      margin: 20px 0 0;
-      display: grid;
-      gap: 5px;
-      text-align: left;
-    }
-
-    .side-nav a {
-      min-height: 42px;
+    .nav {
+      min-height: 68px;
       display: flex;
       align-items: center;
-      gap: 13px;
-      padding: 9px 16px;
-      border-radius: 8px;
-      color: var(--ink);
-      font-weight: 720;
-      text-decoration: none;
-      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+      justify-content: space-between;
+      gap: 22px;
     }
 
-    .side-nav a:hover,
-    .side-nav a:focus-visible {
-      background: var(--accent-soft);
-      color: var(--ink-strong);
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      color: var(--text);
+      font-weight: 760;
+      line-height: 1.15;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 680;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a.active {
+      background: rgba(196, 147, 80, 0.18);
+      color: var(--text);
       outline: 0;
-      transform: translateX(3px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(250, 244, 234, 0.1);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: min(52vw, 690px);
+      height: 100%;
+      padding: clamp(42px, 6vw, 88px) 0 clamp(34px, 5vw, 70px) clamp(28px, 4vw, 68px);
+      object-fit: contain;
+      object-position: right center;
+      opacity: 0.86;
+      filter: saturate(0.95) contrast(1.02);
+      z-index: -3;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(8, 9, 11, 1) 0%, rgba(8, 9, 11, 0.94) 43%, rgba(8, 9, 11, 0.62) 72%, rgba(8, 9, 11, 0.24) 100%),
+        linear-gradient(180deg, rgba(8, 9, 11, 0.2), rgba(8, 9, 11, 0.9));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 40%;
+      z-index: -1;
+      background: linear-gradient(0deg, var(--black), transparent);
+    }
+
+    .hero-inner {
+      min-height: 82vh;
+      display: grid;
+      align-items: center;
+      padding: 96px 0 68px;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+    }
+
+    .eyebrow,
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(2.9rem, 7vw, 5.6rem);
+      line-height: 1;
+      font-weight: 790;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 590px;
+      margin: 22px 0 0;
+      color: #e8dfd4;
+      font-size: 1.17rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 17px;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      background: var(--gold);
+      color: #121212;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .button.secondary {
+      background: rgba(251, 248, 242, 0.08);
+      color: var(--text);
+      border-color: rgba(251, 248, 242, 0.24);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      outline: 0;
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: rgba(251, 248, 242, 0.16);
+      border-color: rgba(251, 248, 242, 0.42);
     }
 
     .icon {
       width: 18px;
       height: 18px;
       flex: 0 0 auto;
+      fill: none;
       stroke: currentColor;
       stroke-width: 2;
-      fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .icon-sm {
-      width: 17px;
-      height: 17px;
-      flex: 0 0 auto;
-      stroke: currentColor;
-      stroke-width: 2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .ticker {
+      border-block: 1px solid rgba(250, 244, 234, 0.12);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .ticker-track {
+      width: max-content;
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      animation: ticker 30s linear infinite;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(196, 147, 80, 0.34);
+      border-radius: 999px;
+      color: #ead7bd;
+      background: rgba(196, 147, 80, 0.08);
+      font-weight: 720;
+      white-space: nowrap;
+    }
+
+    main {
+      padding: 58px 0 70px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+
+    .quick-link {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid rgba(250, 244, 234, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-weight: 760;
+      text-decoration: none;
+      transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+    }
+
+    .quick-link:hover,
+    .quick-link:focus-visible {
+      border-color: rgba(196, 147, 80, 0.65);
+      background: rgba(196, 147, 80, 0.12);
+      transform: translateY(-2px);
+      outline: 0;
+    }
+
+    .section {
+      margin-top: 26px;
+      padding: 32px;
+      border: 1px solid rgba(250, 244, 234, 0.12);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--text-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .section.dark {
+      background:
+        linear-gradient(135deg, rgba(196, 147, 80, 0.1), transparent 42%),
+        var(--black-2);
+      color: var(--text);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.76fr) minmax(260px, 0.24fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.05;
+      font-weight: 790;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .section p {
+      color: var(--muted-dark);
+    }
+
+    .section.dark .section-head p,
+    .section.dark p {
+      color: #d7cbbb;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-left: 4px solid var(--gold);
+      background: var(--panel-2);
+      border-radius: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text-dark);
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .stat span {
+      color: var(--muted-dark);
+      font-size: 0.92rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+      gap: 18px;
+    }
+
+    .profile-copy {
+      font-size: 1.05rem;
+    }
+
+    .fact-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fact-list li {
+      padding: 14px 15px;
+      border: 1px solid var(--line-dark);
+      border-left: 5px solid var(--gold);
+      border-radius: 8px;
+      background: #fffaf3;
+      color: var(--muted-dark);
+    }
+
+    .fact-list strong {
+      display: block;
+      color: var(--text-dark);
+      font-size: 0.94rem;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .tab-list {
+      display: grid;
+      gap: 10px;
+      align-self: start;
+    }
+
+    .tab-button {
+      width: 100%;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 14px;
+      border: 1px solid rgba(250, 244, 234, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      color: #d8d0c8;
+      font: inherit;
+      font-weight: 760;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .tab-button:hover,
+    .tab-button:focus-visible,
+    .tab-button.active {
+      border-color: rgba(196, 147, 80, 0.68);
+      background: rgba(196, 147, 80, 0.16);
+      color: var(--text);
+      transform: translateX(3px);
+      outline: 0;
+    }
+
+    .tab-panel {
+      min-height: 310px;
+      padding: 28px;
+      border: 1px solid rgba(250, 244, 234, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tab-panel[hidden] {
+      display: none !important;
+    }
+
+    .tab-panel h3 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .tab-panel p {
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .tab-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point,
+    .research-card,
+    .service-card {
+      padding: 18px;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius);
+      background: #fffaf3;
+      color: var(--text-dark);
+    }
+
+    .point {
+      border-color: rgba(250, 244, 234, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .point strong,
+    .research-card h3,
+    .service-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 8px;
+      color: inherit;
+      font-size: 1.08rem;
+      line-height: 1.25;
     }
 
     .icon-badge {
@@ -212,518 +549,161 @@
       height: 34px;
       display: inline-grid;
       place-items: center;
-      border-radius: 9px;
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .contact-strip {
-      margin-top: 16px;
-      padding: 10px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      background: var(--panel-soft);
+      flex: 0 0 auto;
       border-radius: 8px;
-      text-align: left;
+      background: var(--gold-soft);
+      color: #6f4d25;
     }
 
-    .contact-strip a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 7px;
-      color: var(--ink);
-      font-size: 0.9rem;
-      font-weight: 690;
-      text-decoration: none;
-    }
-
-    .contact-strip a:hover,
-    .contact-strip a:focus-visible {
-      background: #ffffff;
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .mini-card {
-      padding: 16px;
-    }
-
-    .mini-card h2 {
-      margin: 0 0 12px;
-      color: var(--ink-strong);
-      font-size: 0.95rem;
-      text-align: center;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .chip {
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #5d4022;
-      font-size: 0.82rem;
-      font-weight: 680;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .mini-list {
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-      list-style: none;
-    }
-
-    main {
-      display: grid;
-      gap: 22px;
-    }
-
-    .panel {
-      overflow: hidden;
-      animation: panelIn 520ms ease both;
-    }
-
-    main .panel:nth-child(2) {
-      animation-delay: 70ms;
-    }
-
-    main .panel:nth-child(3) {
-      animation-delay: 120ms;
-    }
-
-    main .panel:nth-child(4) {
-      animation-delay: 170ms;
-    }
-
-    main .panel:nth-child(5) {
-      animation-delay: 220ms;
-    }
-
-    .intro-panel {
-      padding: 34px 40px;
-    }
-
-    .intro-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 250px;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .eyebrow,
-    .kicker {
-      margin: 0 0 8px;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 760;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .intro-panel h2,
-    .content-panel h2,
-    .contact-panel h2 {
-      margin: 0;
-      color: var(--ink);
-      font-size: 2.65rem;
-      line-height: 1.08;
-      font-weight: 740;
-    }
-
-    .intro-panel p {
-      max-width: 680px;
-      margin: 10px 0 0;
-      color: var(--ink);
-      font-size: 1.08rem;
-    }
-
-    .intro-notes {
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-      list-style: none;
-    }
-
-    .intro-notes li {
-      padding: 12px 14px;
-      border-left: 4px solid var(--accent);
-      border-radius: 8px;
-      background: var(--panel-soft);
-      color: var(--muted);
-      line-height: 1.35;
-      display: grid;
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 10px;
-      align-items: start;
-    }
-
-    .intro-notes strong {
-      display: block;
-      margin-bottom: 2px;
-      color: var(--ink-strong);
-      font-size: 0.9rem;
-    }
-
-    .intro-notes span:not(.icon-badge) {
-      display: block;
-    }
-
-    .banner {
-      height: 162px;
-      border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(90deg, rgba(255, 253, 249, 0.96), rgba(255, 249, 241, 0.72)),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 310'%3E%3Crect width='900' height='310' fill='%23fff9f1'/%3E%3Cg fill='none' stroke='%23c49350' stroke-width='2' opacity='0.3'%3E%3Cpath d='M120 250 C250 120 365 160 500 80 S735 60 850 170'/%3E%3Cpath d='M105 210 C250 85 370 120 520 48 S745 40 875 130'/%3E%3Cpath d='M155 285 C285 180 390 195 520 135 S720 100 840 220'/%3E%3Cpath d='M300 302 C390 230 460 238 560 178 S720 130 880 210'/%3E%3C/g%3E%3Cg fill='%23f4e4ce'%3E%3Ccircle cx='650' cy='130' r='82'/%3E%3Ccircle cx='260' cy='176' r='112'/%3E%3C/g%3E%3Cg fill='none' stroke='%23263624' stroke-width='3' opacity='0.26'%3E%3Cpath d='M205 298 C270 210 340 202 420 150 C510 92 600 85 700 20'/%3E%3Cpath d='M60 280 C170 210 230 112 350 92 C455 75 520 95 610 35'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: cover;
-      background-position: center;
-      animation: bannerDrift 12s ease-in-out infinite alternate;
-    }
-
-    .content-panel {
-      padding: 24px 28px 28px;
-    }
-
-    .content-panel h2 {
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
-      font-size: 2.1rem;
-    }
-
-    .content-panel h3 {
-      margin: 0 0 8px;
-      color: var(--ink-strong);
-      font-size: 1.22rem;
-      line-height: 1.28;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .content-panel p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .section-lede {
-      max-width: 760px;
-      margin: 16px 0 20px;
-      color: var(--ink);
-      font-size: 1.05rem;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 300px;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .facts {
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-      list-style: none;
-    }
-
-    .facts li {
-      padding: 13px 15px;
-      border-left: 4px solid var(--accent);
-      background: var(--panel-soft);
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .facts strong {
-      display: block;
-      color: var(--ink-strong);
-      font-size: 0.92rem;
-    }
-
-    .card-grid {
+    .research-grid,
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .research-card,
+    .service-card {
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
-    .small-card {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #ffffff;
-      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-    }
-
-    .small-card:hover {
-      border-color: rgba(49, 95, 143, 0.38);
-      box-shadow: 0 10px 20px rgba(35, 54, 79, 0.09);
-      transform: translateY(-2px);
-    }
-
-    .small-card ul {
-      margin: 10px 0 0;
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    .small-card li + li {
-      margin-top: 6px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 86px 34px minmax(0, 1fr);
-      gap: 18px;
-      padding: 15px 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #ffffff;
+    .research-card:hover,
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(38, 34, 29, 0.12);
     }
 
     .year {
-      color: var(--accent);
-      font-weight: 760;
-      line-height: 1.3;
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: #7d562a;
+      font-weight: 800;
     }
 
-    .timeline-icon {
-      margin-top: 1px;
+    .service-card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--muted-dark);
     }
 
-    .contact-panel {
-      padding: 26px 30px;
+    .contact-section {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 26px;
       align-items: center;
     }
 
     .contact-actions {
       display: grid;
       gap: 10px;
-      min-width: 230px;
-    }
-
-    .contact-panel h2 {
-      font-size: 1.95rem;
-    }
-
-    .contact-panel p {
-      max-width: 680px;
-      margin: 10px 0 0;
-      color: var(--muted);
-    }
-
-    .button {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border: 1px solid var(--ink-strong);
-      border-radius: 8px;
-      background: var(--ink-strong);
-      color: #ffffff;
-      font-weight: 720;
-      line-height: 1.2;
-      text-align: center;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--ink-strong);
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: #ffffff;
-      outline: 0;
-      transform: translateY(-1px);
     }
 
     .site-footer {
-      width: min(100% - 40px, var(--container));
-      margin: 0 auto;
-      padding: 0 0 36px;
-      color: var(--muted);
-      font-size: 0.9rem;
+      padding: 32px 0 46px;
+      color: #8e867e;
       text-align: center;
+      font-size: 0.92rem;
     }
 
-    @keyframes panelIn {
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes ticker {
       from {
-        opacity: 0;
-        transform: translateY(10px);
+        transform: translateX(0);
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes avatarSettle {
-      from {
-        opacity: 0;
-        transform: scale(0.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes bannerDrift {
-      from {
-        background-position: center 46%;
-      }
-
-      to {
-        background-position: center 56%;
+        transform: translateX(-50%);
       }
     }
 
     @media (max-width: 980px) {
-      .page {
-        grid-template-columns: 1fr;
+      .hero-photo {
+        width: 100%;
+        padding: 80px 0 20px;
+        opacity: 0.42;
+        object-position: right center;
       }
 
-      .sidebar {
-        position: static;
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.75fr);
-        align-items: start;
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(8, 9, 11, 0.96), rgba(8, 9, 11, 0.72)),
+          linear-gradient(180deg, rgba(8, 9, 11, 0.18), rgba(8, 9, 11, 0.92));
       }
 
-      .profile-card {
-        text-align: left;
-      }
-
-      .avatar {
-        width: 104px;
-        height: 104px;
-        margin: 0 0 18px;
-        font-size: 2rem;
-      }
-
-      .side-nav {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .contact-strip {
+      .quick-grid,
+      .research-grid,
+      .services-grid,
+      .tab-points {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .two-column,
-      .intro-layout,
-      .contact-panel {
+      .section-head,
+      .profile-grid,
+      .tabs,
+      .contact-section {
         grid-template-columns: 1fr;
-      }
-
-      .contact-actions {
-        min-width: 0;
-      }
-
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 680px) {
-      .page,
-      .site-footer {
+      .container {
         width: min(100% - 28px, var(--container));
       }
 
-      .page {
-        padding-top: 16px;
-        gap: 18px;
+      .nav {
+        min-height: 62px;
       }
 
-      .sidebar {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-card,
-      .content-panel,
-      .contact-panel {
-        padding: 20px;
-      }
-
-      .intro-panel {
-        padding: 26px 20px;
-      }
-
-      .intro-panel h2 {
-        font-size: 2.25rem;
-      }
-
-      .content-panel h2 {
-        font-size: 2rem;
-      }
-
-      .banner {
-        height: 126px;
-      }
-
-      .side-nav {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .side-nav a {
-        padding-inline: 10px;
-      }
-
-      .card-grid,
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 5px;
-      }
-
-      .timeline-icon {
+      .nav-links {
         display: none;
       }
 
-      .button {
+      .hero,
+      .hero-inner {
+        min-height: 78vh;
+      }
+
+      .hero-inner {
+        padding: 52px 0 46px;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .quick-grid,
+      .mini-stats,
+      .research-grid,
+      .services-grid,
+      .tab-points {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .button,
+      .quick-link {
         width: 100%;
+      }
+
+      .actions {
+        display: grid;
+      }
+
+      .tab-panel {
+        padding: 20px;
       }
     }
 
@@ -743,261 +723,255 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="page" id="top">
-    <aside class="sidebar" aria-label="Profile and navigation">
-      <section class="sidebar-card profile-card">
-        <div class="avatar">
-          <img
-            id="profile-photo"
-            src=""
-            alt="Adolph AJ Delgado"
-            data-candidates="https://drive.google.com/thumbnail?id=1mrLR460ReAzMCAyLLStSBzrIxJ0cs5j-&sz=w800,aj-photo.jpg,aj-photo.png,profile.jpg,profile.png,headshot.jpg,headshot.png"
-            hidden
-          />
-          <span hidden>AJ</span>
-        </div>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary navigation">
+      <a class="brand" href="#home">
+        Adolph &quot;AJ&quot; Delgado
+        <span>PhD</span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#work">Work</a>
+        <a href="#research">Research</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img
+      class="hero-photo"
+      src="https://drive.google.com/thumbnail?id=1mrLR460ReAzMCAyLLStSBzrIxJ0cs5j-&sz=w1200"
+      alt="Adolph AJ Delgado"
+    />
+    <div class="container hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Public health, data, evaluation, and AI</p>
         <h1>Adolph &quot;AJ&quot; Delgado, PhD</h1>
-        <p>Public health researcher, applied demographer, educator, and data consultant.</p>
-
-        <nav class="side-nav" aria-label="Primary navigation">
-          <a href="#home">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.5V20h5v-5h4v5h5v-9.5"/></svg>
-            Home
-          </a>
-          <a href="#about">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v6"/><path d="M12 7h.01"/></svg>
-            About
-          </a>
-          <a href="#work">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
-            Work
-          </a>
-          <a href="#research">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
-            Research
-          </a>
-          <a href="#services">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
-            Services
-          </a>
-          <a href="#contact">
+        <p>
+          Applied demographer, public health researcher, educator, and data consultant
+          working across research, evaluation, teaching, and generative AI.
+        </p>
+        <div class="actions">
+          <a class="button" href="mailto:adelgado@sigresults.com">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            Contact
+            Email AJ
           </a>
-        </nav>
-
-        <div class="contact-strip" aria-label="Quick links">
-          <a href="mailto:adelgado@sigresults.com">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            Email
-          </a>
-          <a href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-            CV
-          </a>
-          <a href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
-            Academic
-          </a>
-          <a href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg>
-            LinkedIn
+          <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+            View CV
           </a>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="sidebar-card mini-card">
-        <h2>Focus</h2>
-        <div class="chips" aria-label="Focus areas">
-          <span class="chip">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg>
-            public health
-          </span>
-          <span class="chip">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
-            data analysis
-          </span>
-          <span class="chip">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            evaluation
-          </span>
-          <span class="chip">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m18.4 5.6-2.1 2.1"/><path d="m7.7 16.3-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
-            generative AI
-          </span>
-        </div>
-      </section>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="tag">Applied demography</span>
+      <span class="tag">Public health research</span>
+      <span class="tag">Data analysis</span>
+      <span class="tag">Evaluation</span>
+      <span class="tag">Teaching</span>
+      <span class="tag">Generative AI</span>
+      <span class="tag">Grant support</span>
+      <span class="tag">Public health messaging</span>
+      <span class="tag">Applied demography</span>
+      <span class="tag">Public health research</span>
+      <span class="tag">Data analysis</span>
+      <span class="tag">Evaluation</span>
+      <span class="tag">Teaching</span>
+      <span class="tag">Generative AI</span>
+      <span class="tag">Grant support</span>
+      <span class="tag">Public health messaging</span>
+    </div>
+  </div>
 
-      <section class="sidebar-card mini-card">
-        <h2>Current Roles</h2>
-        <ul class="mini-list">
-          <li>Bridge to Faculty Postdoctoral Fellow, Public Health</li>
-          <li>Owner and Senior Data Scientist, Significant Results LLC</li>
-          <li>Assistant Professor of Instruction</li>
-        </ul>
-      </section>
-    </aside>
+  <main id="main">
+    <div class="container">
+      <div class="quick-grid reveal" aria-label="Professional links">
+        <a class="quick-link" href="mailto:adelgado@sigresults.com">
+          <span>Email</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+        </a>
+        <a class="quick-link" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
+          <span>CV</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+        </a>
+        <a class="quick-link" href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">
+          <span>Academic</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
+        </a>
+        <a class="quick-link" href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">
+          <span>LinkedIn</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg>
+        </a>
+      </div>
 
-    <main id="main">
-      <section class="panel intro-panel" id="home">
-        <div class="intro-layout">
+      <section class="section reveal" id="profile">
+        <div class="section-head">
           <div>
-            <p class="eyebrow">Public health, data, evaluation, and AI</p>
-            <h2>Hi, I am AJ.</h2>
+            <p class="kicker">Profile</p>
+            <h2>Applied research for public health and program settings.</h2>
+          </div>
+          <div class="mini-stats">
+            <div class="stat"><strong>PhD</strong><span>Applied Demography</span></div>
+            <div class="stat"><strong>2019</strong><span>Significant Results LLC</span></div>
+            <div class="stat"><strong>AI</strong><span>Training and workflows</span></div>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-copy">
             <p>
-              I work in applied demography, public health research, data analysis,
-              evaluation, teaching, and generative AI.
+              My work focuses on applied public health questions, data analysis,
+              evaluation, grants, reporting, stakeholder facilitation, and public health
+              communication.
+            </p>
+            <p>
+              Current topics include HIV prevention, chronic disease prevention,
+              population health, and responsible uses of AI in research and teaching.
             </p>
           </div>
-
-          <ul class="intro-notes" aria-label="Profile summary">
-            <li>
-              <span class="icon-badge" aria-hidden="true">
-                <svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
-              </span>
-              <span><strong>Current</strong>Academic appointment and Significant Results LLC</span>
-            </li>
-            <li>
-              <span class="icon-badge" aria-hidden="true">
-                <svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/><path d="M16 15l2 2 4-4"/></svg>
-              </span>
-              <span><strong>Work</strong>Research, evaluation, teaching, and AI training</span>
-            </li>
+          <ul class="fact-list" aria-label="Education">
+            <li><strong>PhD</strong>Applied Demography, UTSA, 2023</li>
+            <li><strong>MEd</strong>Quantitative Methods, UT Austin, 2019</li>
+            <li><strong>MS</strong>Health and Kinesiology, UTSA, 2014</li>
+            <li><strong>BA</strong>Psychology, UTSA, 2010</li>
           </ul>
         </div>
       </section>
 
-      <section class="panel" id="about">
-        <div class="banner" aria-hidden="true"></div>
-        <div class="content-panel">
-          <p class="kicker">About</p>
-          <h2>Overview</h2>
-          <div class="two-column">
-            <div>
-              <p class="section-lede">
-                My work focuses on applied questions in public health practice and program settings.
-                Current topics include HIV prevention, chronic disease prevention,
-                population health, and responsible uses of AI in research and teaching.
-              </p>
-              <p>
-                I also support organizations with data analysis, evaluation, grants,
-                reporting, stakeholder facilitation, and public health communication.
-              </p>
-            </div>
+      <section class="section dark reveal" id="work">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Work</p>
+            <h2>Choose a focus area.</h2>
+          </div>
+          <p>
+            The tabs below show the main themes across my research, consulting,
+            teaching, and applied AI work.
+          </p>
+        </div>
 
-            <ul class="facts" aria-label="Education">
-              <li><strong>PhD</strong>Applied Demography, UTSA, 2023</li>
-              <li><strong>MEd</strong>Quantitative Methods, UT Austin, 2019</li>
-              <li><strong>MS</strong>Health and Kinesiology, UTSA, 2014</li>
-              <li><strong>BA</strong>Psychology, UTSA, 2010</li>
-            </ul>
+        <div class="tabs">
+          <div class="tab-list" role="tablist" aria-label="Work focus areas">
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="tab-data" id="tab-data-button" data-tab="tab-data">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
+              Data Analysis
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-health" id="tab-health-button" data-tab="tab-health">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg>
+              Public Health
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ai" id="tab-ai-button" data-tab="tab-ai">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
+              Generative AI
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-teaching" id="tab-teaching-button" data-tab="tab-teaching">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/></svg>
+              Teaching
+            </button>
+          </div>
+
+          <div>
+            <article class="tab-panel" role="tabpanel" id="tab-data" aria-labelledby="tab-data-button">
+              <h3>Data Analysis and Reporting</h3>
+              <p>Quantitative analysis, demographic methods, survey analysis, database management, and reporting for research and program decisions.</p>
+              <div class="tab-points">
+                <div class="point"><strong>Methods</strong><span>Survey and demographic analysis</span></div>
+                <div class="point"><strong>Systems</strong><span>Database management and cleanup</span></div>
+                <div class="point"><strong>Outputs</strong><span>Reports, tables, summaries, and presentations</span></div>
+              </div>
+            </article>
+
+            <article class="tab-panel" role="tabpanel" id="tab-health" aria-labelledby="tab-health-button" hidden>
+              <h3>Public Health Research</h3>
+              <p>Applied work in HIV prevention, chronic disease prevention, population health, sexual health, and public health programs.</p>
+              <div class="tab-points">
+                <div class="point"><strong>Topics</strong><span>HIV, chronic disease, and prevention</span></div>
+                <div class="point"><strong>Practice</strong><span>Program design and measurement</span></div>
+                <div class="point"><strong>Communication</strong><span>Clear public health messaging</span></div>
+              </div>
+            </article>
+
+            <article class="tab-panel" role="tabpanel" id="tab-ai" aria-labelledby="tab-ai-button" hidden>
+              <h3>Generative AI</h3>
+              <p>Training, prompt design, responsible use guidance, and AI-supported workflows for research, teaching, and organizational work.</p>
+              <div class="tab-points">
+                <div class="point"><strong>Training</strong><span>Introductory and applied workshops</span></div>
+                <div class="point"><strong>Workflow</strong><span>Prompting and process design</span></div>
+                <div class="point"><strong>Use</strong><span>Research, writing, teaching, and operations</span></div>
+              </div>
+            </article>
+
+            <article class="tab-panel" role="tabpanel" id="tab-teaching" aria-labelledby="tab-teaching-button" hidden>
+              <h3>Teaching and Workshops</h3>
+              <p>Courses and workshops in statistics, database management, quantitative analysis, public health messaging, and AI.</p>
+              <div class="tab-points">
+                <div class="point"><strong>Courses</strong><span>Data, methods, and public health communication</span></div>
+                <div class="point"><strong>Workshops</strong><span>Statistics, SPSS, AI, and applied analysis</span></div>
+                <div class="point"><strong>Mentoring</strong><span>Student research and technical skill building</span></div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="panel content-panel" id="work">
-        <p class="kicker">Work</p>
-        <h2>Areas of Focus</h2>
-        <p class="section-lede">
-          These areas appear across my research, teaching, consulting, and applied public health work.
-        </p>
+      <section class="section reveal" id="research">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Research</p>
+            <h2>Selected research examples.</h2>
+          </div>
+          <p>Short examples from my publication and research record.</p>
+        </div>
 
-        <div class="card-grid">
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg></span>Public Health</h3>
-            <p>HIV prevention, chronic disease prevention, population health, sexual health, and public health programs.</p>
+        <div class="research-grid">
+          <article class="research-card">
+            <span class="year">2026</span>
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/></svg></span>HIV status in Bexar County, Texas</h3>
+            <p>PLOS ONE article on HIV status, sociodemographic characteristics, and sexual behavior among men in Bexar County.</p>
           </article>
 
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg></span>Data Analysis</h3>
-            <p>Quantitative analysis, demographic methods, survey analysis, database management, and reporting.</p>
+          <article class="research-card">
+            <span class="year">2025</span>
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>Resilience and trauma research</h3>
+            <p>Collaborative article using a group-based approach to examine resilience and trauma.</p>
           </article>
 
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Evaluation</h3>
-            <p>Evaluation planning, measurement, data collection, interpretation, and written deliverables.</p>
+          <article class="research-card">
+            <span class="year">2023</span>
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>The State of HIV</h3>
+            <p>Doctoral dissertation on the Ending the HIV Epidemic initiative in the United States.</p>
           </article>
 
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m18.4 5.6-2.1 2.1"/><path d="m7.7 16.3-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>Generative AI</h3>
-            <p>Training, prompt design, responsible use guidance, and AI-supported workflows.</p>
+          <article class="research-card">
+            <span class="year">2018</span>
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></span>Social norms and oral PrEP use</h3>
+            <p>AIDS and Behavior publication on PrEP-related norms among men who have sex with men in Texas.</p>
           </article>
 
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/></svg></span>Teaching</h3>
-            <p>Statistics, database management, quantitative analysis, public health messaging, and AI.</p>
-          </article>
-
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 6V3"/><path d="M6 21v-3"/><path d="M18 21v-3"/><path d="M6 18a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4"/><circle cx="12" cy="10" r="4"/></svg></span>Consulting</h3>
-            <p>Applied analysis, grants, stakeholder facilitation, reporting, and support for partner organizations.</p>
+          <article class="research-card">
+            <span class="year">2016</span>
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>Stress and health among servicemen</h3>
+            <p>Journal article on stress, sexual health, and behavioral health among servicemen.</p>
           </article>
         </div>
       </section>
 
-      <section class="panel content-panel" id="research">
-        <p class="kicker">Research</p>
-        <h2>Selected Research</h2>
-
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="year">2026</div>
-            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/></svg></span>
-            <div>
-              <h3>HIV status in Bexar County, Texas</h3>
-              <p>PLOS ONE article on HIV status, sociodemographic characteristics, and sexual behavior among men in Bexar County.</p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="year">2025</div>
-            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-            <div>
-              <h3>Resilience and trauma research</h3>
-              <p>Collaborative article using a group-based approach to examine resilience and trauma.</p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="year">2023</div>
-            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
-            <div>
-              <h3>The State of HIV</h3>
-              <p>Doctoral dissertation on the Ending the HIV Epidemic initiative in the United States.</p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="year">2018</div>
-            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></span>
-            <div>
-              <h3>Social norms and oral PrEP use</h3>
-              <p>AIDS and Behavior publication on PrEP-related norms among men who have sex with men in Texas.</p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="year">2016</div>
-            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
-            <div>
-              <h3>Stress and health among servicemen</h3>
-              <p>Journal article on stress, sexual health, and behavioral health among servicemen.</p>
-            </div>
-          </article>
+      <section class="section reveal" id="services">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Services</p>
+            <h2>Ways to work together.</h2>
+          </div>
+          <p>I work with organizations and research teams that need support with data, evaluation, public health strategy, and AI training.</p>
         </div>
-      </section>
 
-      <section class="panel content-panel" id="services">
-        <p class="kicker">Services</p>
-        <h2>Ways to Work Together</h2>
-        <p class="section-lede">
-          I work with organizations and research teams that need support with data,
-          evaluation, public health strategy, and AI training.
-        </p>
-
-        <div class="service-grid">
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Evaluation and Reporting</h3>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Evaluation and Reporting</h3>
             <ul>
               <li>Evaluation plans</li>
               <li>Data collection and analysis</li>
@@ -1005,8 +979,8 @@
             </ul>
           </article>
 
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M9 3v5l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 17L15 8V3"/><path d="M8 3h8"/></svg></span>Research Support</h3>
+          <article class="service-card">
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v5l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 17L15 8V3"/><path d="M8 3h8"/></svg></span>Research Support</h3>
             <ul>
               <li>Quantitative methods</li>
               <li>Data management</li>
@@ -1014,94 +988,106 @@
             </ul>
           </article>
 
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m18.4 5.6-2.1 2.1"/><path d="m7.7 16.3-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>AI Training</h3>
+          <article class="service-card">
+            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><circle cx="12" cy="12" r="3"/></svg></span>AI Training</h3>
             <ul>
               <li>Introductory workshops</li>
               <li>Responsible use guidance</li>
               <li>Workflow and prompt support</li>
             </ul>
           </article>
-
-          <article class="small-card">
-            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg></span>Public Health Strategy</h3>
-            <ul>
-              <li>HIV prevention</li>
-              <li>Public health messaging</li>
-              <li>Stakeholder facilitation</li>
-            </ul>
-          </article>
         </div>
       </section>
 
-      <section class="panel contact-panel" id="contact">
-        <div>
-          <p class="kicker">Contact</p>
-          <h2>Contact AJ</h2>
-          <p>
-            For consulting, research collaboration, evaluation, AI training, data analysis,
-            grant support, or public health work.
-          </p>
-        </div>
-        <div class="contact-actions">
-          <a class="button" href="mailto:adelgado@sigresults.com">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            Email AJ
-          </a>
-          <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-            View CV
-          </a>
-          <a class="button secondary" href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
-            Academic Profile
-          </a>
-          <a class="button secondary" href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg>
-            LinkedIn
-          </a>
+      <section class="section dark reveal" id="contact">
+        <div class="contact-section">
+          <div>
+            <p class="kicker">Contact</p>
+            <h2>Contact AJ</h2>
+            <p>
+              For consulting, research collaboration, evaluation, AI training,
+              data analysis, grant support, or public health work.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button" href="mailto:adelgado@sigresults.com">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              Email AJ
+            </a>
+            <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+              View CV
+            </a>
+            <a class="button secondary" href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
+              Academic Profile
+            </a>
+            <a class="button secondary" href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg>
+              LinkedIn
+            </a>
+          </div>
         </div>
       </section>
-    </main>
-  </div>
+    </div>
+  </main>
 
   <footer class="site-footer">
-    &copy; 2026 Adolph &quot;AJ&quot; Delgado, PhD. Significant Results LLC.
+    <div class="container">
+      &copy; 2026 Adolph &quot;AJ&quot; Delgado, PhD. Significant Results LLC.
+    </div>
   </footer>
 
   <script>
-    const profilePhoto = document.getElementById("profile-photo");
-    const profileFallback = profilePhoto ? profilePhoto.nextElementSibling : null;
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
 
-    if (profilePhoto && profileFallback) {
-      const candidates = profilePhoto.dataset.candidates.split(",");
-      let index = 0;
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
 
-      const showFallback = () => {
-        profilePhoto.hidden = true;
-        profileFallback.hidden = false;
-      };
+        tabButtons.forEach((item) => {
+          const selected = item === button;
+          item.classList.toggle("active", selected);
+          item.setAttribute("aria-selected", String(selected));
+        });
 
-      const tryNextPhoto = () => {
-        if (index >= candidates.length) {
-          showFallback();
-          return;
-        }
-
-        profileFallback.hidden = true;
-        profilePhoto.hidden = false;
-        profilePhoto.src = candidates[index].trim();
-        index += 1;
-      };
-
-      profilePhoto.addEventListener("load", () => {
-        profilePhoto.hidden = false;
-        profileFallback.hidden = true;
+        tabPanels.forEach((panel) => {
+          panel.hidden = panel.id !== target;
+        });
       });
+    });
 
-      profilePhoto.addEventListener("error", tryNextPhoto);
-      tryNextPhoto();
-    }
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const sections = [...navLinks]
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-40% 0px -50% 0px" });
+
+    sections.forEach((section) => navObserver.observe(section));
   </script>
 </body>
 </html>
