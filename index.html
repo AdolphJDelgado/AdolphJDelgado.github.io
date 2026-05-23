@@ -3,111 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adolph J. Delgado | Significant Results</title>
+
+  <title>AJ Delgado, PhD | AI, Data, Public Health & Evaluation</title>
+  <meta name="description" content="AJ Delgado, PhD is an applied statistician, generative AI expert, public health researcher, and founder of Significant Results." />
 
   <style>
     :root {
       --navy: #07111f;
+      --navy-2: #101d33;
       --blue: #2563eb;
       --cyan: #38bdf8;
+      --green: #22c55e;
       --gold: #fbbf24;
+      --cream: #fff7ed;
+      --white: #ffffff;
       --text: #111827;
       --muted: #64748b;
-      --bg: #f8fafc;
-      --card: #ffffff;
       --border: #e2e8f0;
+      --soft: #f8fafc;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Inter, Arial, sans-serif;
-      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
+      background: var(--soft);
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 26px;
     }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       background: rgba(7, 17, 31, 0.92);
-      backdrop-filter: blur(10px);
-      color: white;
-      padding: 18px 28px;
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .nav-inner {
-      max-width: 1120px;
+      max-width: 1160px;
       margin: auto;
+      padding: 16px 26px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: white;
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 21px;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #dbeafe;
     }
 
     .nav-links a {
-      color: #dbeafe;
       text-decoration: none;
-      margin-left: 22px;
-      font-weight: 600;
-      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
     }
 
     header {
-      background:
-        radial-gradient(circle at top right, rgba(56,189,248,0.35), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(251,191,36,0.22), transparent 32%),
-        linear-gradient(135deg, #07111f 0%, #0f172a 45%, #172554 100%);
+      position: relative;
+      overflow: hidden;
       color: white;
-      padding: 100px 28px 80px;
+      background:
+        radial-gradient(circle at 78% 12%, rgba(56,189,248,0.34), transparent 28%),
+        radial-gradient(circle at 15% 85%, rgba(251,191,36,0.22), transparent 30%),
+        linear-gradient(135deg, #07111f 0%, #0f172a 45%, #172554 100%);
+      padding: 96px 0 82px;
     }
 
-    .container {
-      max-width: 1120px;
-      margin: auto;
+    header::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -40% auto;
+      width: 620px;
+      height: 620px;
+      background: rgba(37, 99, 235, 0.22);
+      border-radius: 999px;
+      filter: blur(12px);
     }
 
     .hero-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 42px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 46px;
       align-items: center;
     }
 
     .eyebrow {
-      display: inline-block;
-      background: rgba(56,189,248,0.14);
-      color: #bae6fd;
-      border: 1px solid rgba(186,230,253,0.35);
-      padding: 8px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
       border-radius: 999px;
-      font-weight: 700;
+      background: rgba(56,189,248,0.14);
+      border: 1px solid rgba(186,230,253,0.35);
+      color: #bae6fd;
       font-size: 13px;
-      margin-bottom: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
     }
 
     h1 {
-      font-size: clamp(46px, 7vw, 82px);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      margin: 0 0 24px;
+      margin: 0 0 22px;
+      font-size: clamp(48px, 7vw, 84px);
+      line-height: 0.94;
+      letter-spacing: -0.075em;
     }
 
-    .hero p {
+    .hero-copy {
       font-size: 22px;
       color: #dbeafe;
-      max-width: 720px;
-      margin-bottom: 32px;
+      max-width: 750px;
+      margin-bottom: 34px;
     }
 
     .buttons {
@@ -119,10 +171,10 @@
     .button {
       display: inline-block;
       padding: 14px 20px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-decoration: none;
-      font-weight: 800;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      font-weight: 900;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .button:hover {
@@ -131,190 +183,314 @@
 
     .primary {
       background: white;
-      color: #0f172a;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+      color: var(--navy);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.25);
     }
 
     .secondary {
       color: white;
       border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.06);
     }
 
-    .stat-card {
-      background: rgba(255,255,255,0.08);
+    .profile-card {
+      background: rgba(255,255,255,0.09);
       border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+      border-radius: 34px;
+      padding: 30px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.32);
     }
 
-    .stat-card h3 {
-      margin-top: 0;
-      color: #fef3c7;
-      font-size: 18px;
+    .profile-card h2 {
+      margin: 0 0 8px;
+      font-size: 31px;
+      letter-spacing: -0.04em;
     }
 
-    .stat {
-      border-top: 1px solid rgba(255,255,255,0.14);
-      padding: 18px 0;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 30px;
-      line-height: 1.1;
-      color: white;
-    }
-
-    .stat span {
+    .profile-card p {
       color: #cbd5e1;
+      margin-top: 0;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .mini-item {
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .mini-item strong {
+      display: block;
+      color: white;
+      font-size: 16px;
+    }
+
+    .mini-item span {
+      color: #cbd5e1;
+      font-size: 14px;
     }
 
     section {
-      padding: 76px 28px;
+      padding: 78px 0;
     }
 
-    .section-title {
-      max-width: 760px;
-      margin-bottom: 34px;
+    .section-head {
+      max-width: 790px;
+      margin-bottom: 36px;
     }
 
-    .section-title h2 {
-      font-size: 42px;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+    .kicker {
+      color: var(--blue);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
       margin: 0 0 14px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
     }
 
-    .section-title p {
+    .section-head p {
       font-size: 19px;
       color: var(--muted);
     }
 
-    .grid {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
-    .card .icon {
-      width: 46px;
-      height: 46px;
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 16px 42px rgba(15,23,42,0.07);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      letter-spacing: -0.035em;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
+      border-radius: 16px;
       background: #eff6ff;
       color: var(--blue);
       font-weight: 900;
       margin-bottom: 18px;
     }
 
-    .card h3 {
-      font-size: 23px;
-      margin: 0 0 10px;
-      letter-spacing: -0.02em;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0;
-      font-size: 16px;
-    }
-
-    .feature {
-      background: #0f172a;
-      color: white;
-      border-radius: 32px;
+    .about-panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 34px;
       padding: 42px;
+      box-shadow: var(--shadow);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
+      gap: 34px;
+      align-items: start;
     }
 
-    .feature:after {
+    .about-panel p {
+      font-size: 18px;
+      color: #334155;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #eff6ff, #ecfeff);
+      border: 1px solid #bfdbfe;
+      border-radius: 26px;
+      padding: 28px;
+    }
+
+    .highlight-box h3 {
+      margin-top: 0;
+      font-size: 26px;
+      letter-spacing: -0.04em;
+    }
+
+    .bullets {
+      padding-left: 20px;
+      color: #334155;
+    }
+
+    .bullets li {
+      margin-bottom: 10px;
+    }
+
+    .impact {
+      background: var(--navy);
+      color: white;
+      border-radius: 36px;
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact::after {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 999px;
+      right: -110px;
+      top: -130px;
+      width: 320px;
+      height: 320px;
       background: rgba(56,189,248,0.18);
-      right: -80px;
-      top: -80px;
-    }
-
-    .feature h2 {
-      font-size: 40px;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin: 0 0 18px;
-    }
-
-    .feature p {
-      color: #cbd5e1;
-      font-size: 18px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .chip {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #e0f2fe;
-      padding: 10px 13px;
       border-radius: 999px;
-      font-weight: 700;
+    }
+
+    .impact-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .impact-item {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .impact-item strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .impact-item span {
+      color: #cbd5e1;
       font-size: 14px;
     }
 
-    .contact {
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(15,23,42,0.06);
+    }
+
+    .year {
+      font-weight: 900;
+      color: var(--blue);
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: -0.035em;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quote-section {
+      background: linear-gradient(135deg, #fff7ed, #eff6ff);
+    }
+
+    .quote {
+      max-width: 920px;
+      margin: auto;
       text-align: center;
-      background: linear-gradient(135deg, #2563eb, #0f172a);
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .quote span {
+      color: var(--blue);
+    }
+
+    .contact-card {
+      background:
+        radial-gradient(circle at top right, rgba(56,189,248,0.28), transparent 30%),
+        linear-gradient(135deg, #2563eb, #0f172a);
       color: white;
-      border-radius: 32px;
-      padding: 54px 28px;
+      border-radius: 36px;
+      padding: 54px 34px;
+      text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .contact h2 {
-      font-size: 44px;
-      margin: 0 0 12px;
-      letter-spacing: -0.04em;
+    .contact-card h2 {
+      color: white;
     }
 
-    .contact p {
+    .contact-card p {
       color: #dbeafe;
       font-size: 19px;
-      margin-bottom: 28px;
+      max-width: 720px;
+      margin: 0 auto 28px;
     }
 
     footer {
+      padding: 36px 26px;
       text-align: center;
       color: var(--muted);
-      padding: 34px 28px;
       border-top: 1px solid var(--border);
+      background: white;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .hero-grid,
-      .feature {
+      .about-panel,
+      .grid-2,
+      .grid-3 {
         grid-template-columns: 1fr;
       }
 
-      .grid {
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline-item {
         grid-template-columns: 1fr;
       }
 
@@ -323,7 +499,20 @@
       }
 
       header {
-        padding-top: 72px;
+        padding: 72px 0 64px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .about-panel,
+      .impact,
+      .contact-card {
+        padding: 26px;
       }
     }
   </style>
@@ -332,10 +521,11 @@
 <body>
   <nav>
     <div class="nav-inner">
-      <div class="brand">Adolph J. Delgado</div>
+      <div class="brand">AJ Delgado<span>, PhD</span></div>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#impact">Impact</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -343,98 +533,263 @@
 
   <header>
     <div class="container hero-grid">
-      <div class="hero">
-        <div class="eyebrow">Significant Results · Data + Evaluation + Strategy</div>
-        <h1>Turning complex data into clear decisions.</h1>
-        <p>
-          I help organizations measure impact, improve programs, strengthen grant reporting,
-          and use data with more confidence.
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Generative AI · Public Health · Applied Statistics</div>
+        <h1>Making data useful for people doing important work.</h1>
+        <p class="hero-copy">
+          I’m Adolph “AJ” Delgado, PhD — an applied demographer, public health researcher,
+          generative AI practitioner, and founder of Significant Results.
         </p>
         <div class="buttons">
-          <a class="button primary" href="mailto:adelgado@sigresults.com">Start a Conversation</a>
-          <a class="button secondary" href="#services">See What I Do</a>
+          <a class="button primary" href="mailto:adelgado@sigresults.com">Contact AJ</a>
+          <a class="button secondary" href="#work">Explore My Work</a>
         </div>
       </div>
 
-      <div class="stat-card">
-        <h3>Focus Areas</h3>
-        <div class="stat">
-          <strong>Evaluation</strong>
-          <span>Programs, outcomes, reporting, learning</span>
+      <aside class="profile-card">
+        <h2>What I do</h2>
+        <p>
+          I help universities, nonprofits, public health teams, and community partners turn
+          complex information into strategy, action, and measurable outcomes.
+        </p>
+
+        <div class="mini-list">
+          <div class="mini-item">
+            <strong>AI for Public Good</strong>
+            <span>Practical, responsible uses of generative AI in research, health, and education.</span>
+          </div>
+
+          <div class="mini-item">
+            <strong>Evaluation & Analytics</strong>
+            <span>Program evaluation, quantitative analysis, dashboards, and reporting.</span>
+          </div>
+
+          <div class="mini-item">
+            <strong>Community Health Equity</strong>
+            <span>Research and practice focused on HIV, chronic disease prevention, and underserved communities.</span>
+          </div>
         </div>
-        <div class="stat">
-          <strong>Analytics</strong>
-          <span>Dashboards, summaries, insights, tools</span>
-        </div>
-        <div class="stat">
-          <strong>Strategy</strong>
-          <span>Grant support, workflows, implementation</span>
-        </div>
-      </div>
+      </aside>
     </div>
   </header>
 
-  <section id="services">
+  <section id="about">
     <div class="container">
-      <div class="section-title">
-        <h2>Practical support for organizations doing serious work.</h2>
+      <div class="section-head">
+        <div class="kicker">About</div>
+        <h2>A researcher, teacher, and strategist with a community-first lens.</h2>
         <p>
-          The goal is not just prettier reports. It is better decisions, stronger programs,
-          and evidence people can actually use.
+          My work connects public health, applied statistics, generative AI, and real-world implementation.
         </p>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <div class="icon">01</div>
-          <h3>Program Evaluation</h3>
+      <div class="about-panel">
+        <div>
           <p>
-            Evaluation plans, logic models, outcome tracking, survey design, reporting,
-            and improvement-focused learning.
+            I specialize in building practical solutions for organizations that need more than “data.”
+            They need clarity. They need strategy. They need evidence that can be explained to funders,
+            partners, leadership, and communities.
+          </p>
+
+          <p>
+            My background includes applied demography, public health research, quantitative methods,
+            HIV prevention, chronic disease prevention, health equity, database management, teaching,
+            grant development, and stakeholder facilitation.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <h3>Current roles</h3>
+          <ul class="bullets">
+            <li><strong>Bridge to Faculty Postdoctoral Fellow</strong> in Public Health at UTSA.</li>
+            <li><strong>Owner & Senior Data Scientist</strong> at Significant Results LLC.</li>
+            <li><strong>Assistant Professor of Instruction</strong> at UTSA, teaching database management, quantitative analysis, and public health messaging.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Work</div>
+        <h2>Where my work creates value.</h2>
+        <p>
+          I combine the technical side of data with the human side of decision-making.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon">AI</div>
+          <h3>Generative AI Strategy</h3>
+          <p>
+            Workshops, training, responsible AI guidance, custom chatbot development, and practical
+            AI workflows for research, education, public service, and health communication.
           </p>
         </div>
 
         <div class="card">
-          <div class="icon">02</div>
-          <h3>Data Analysis</h3>
+          <div class="icon">Σ</div>
+          <h3>Applied Statistics</h3>
           <p>
-            Cleaning, organizing, analyzing, and translating data into plain-language findings
-            for teams and stakeholders.
+            Quantitative analysis, population health research, survey support, health data analysis,
+            reporting, database design, and translation of technical findings.
           </p>
         </div>
 
         <div class="card">
-          <div class="icon">03</div>
-          <h3>Grant & Reporting Support</h3>
+          <div class="icon">♥</div>
+          <h3>Community Health</h3>
           <p>
-            Helping organizations document results, strengthen narratives, and communicate
-            impact with evidence.
+            Community-engaged research, HIV prevention, chronic disease prevention, health equity,
+            stakeholder engagement, and culturally grounded public health practice.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="approach">
+  <section id="impact">
     <div class="container">
-      <div class="feature">
-        <div>
-          <h2>Built for clarity, not clutter.</h2>
-          <p>
-            My work sits at the intersection of applied research, operations, analytics,
-            and communication. The best data work makes complicated things easier to understand.
+      <div class="impact">
+        <div class="section-head">
+          <div class="kicker" style="color:#93c5fd;">Selected impact</div>
+          <h2>Evidence, funding, teaching, and community practice.</h2>
+          <p style="color:#cbd5e1;">
+            A few highlights from my academic, consulting, and public health work.
           </p>
         </div>
 
-        <div class="chips">
-          <span class="chip">Evaluation Design</span>
-          <span class="chip">Outcome Measurement</span>
-          <span class="chip">Dashboards</span>
-          <span class="chip">Grant Reporting</span>
-          <span class="chip">Applied Research</span>
-          <span class="chip">Workflow Design</span>
-          <span class="chip">AI-Enabled Systems</span>
-          <span class="chip">Strategic Planning</span>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <strong>PhD</strong>
+            <span>Applied Demography, University of Texas at San Antonio.</span>
+          </div>
+
+          <div class="impact-item">
+            <strong>500+</strong>
+            <span>Citations for a peer-reviewed publication on educational technology.</span>
+          </div>
+
+          <div class="impact-item">
+            <strong>2019–Now</strong>
+            <span>Owner and Senior Data Scientist at Significant Results LLC.</span>
+          </div>
+
+          <div class="impact-item">
+            <strong>AI + Health</strong>
+            <span>Training and workshops on generative AI for public health and social science.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">CV Highlights</div>
+        <h2>Selected work worth knowing.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">Research</div>
+          <div>
+            <h3>HIV, health equity, and population health</h3>
+            <p>
+              Published and presented work on HIV prevention, health disparities, syndemic factors,
+              COVID-19 mortality, Latino health, sexual minority health, and community-informed public health strategies.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">AI Practice</div>
+          <div>
+            <h3>Generative AI workshops and public service innovation</h3>
+            <p>
+              Delivered workshops on ChatGPT, DALL·E, custom chatbots, responsible AI use,
+              academic excellence, social work innovation, and AI for local public health.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">Funding</div>
+          <div>
+            <h3>Grant development and funded public health projects</h3>
+            <p>
+              Served as principal investigator or co-principal investigator on awarded, submitted,
+              and pending projects involving HIV prevention, community health, health equity,
+              arts and healing, and generative AI-supported trusted messengers.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">Teaching</div>
+          <div>
+            <h3>Database management, quantitative analysis, and public health messaging</h3>
+            <p>
+              Teaches and mentors students while translating complex technical material into
+              practical skills for research, data work, and public health communication.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote">
+        Good data work is not about making things more complicated.
+        It is about making the next right decision <span>clearer.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Services</div>
+        <h2>How I can help.</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>For organizations</h3>
+          <p>
+            Evaluation plans, data cleanup, dashboards, grant reporting, needs assessments,
+            survey design, stakeholder facilitation, and impact storytelling.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>For teams exploring AI</h3>
+          <p>
+            AI readiness, prompt design, responsible use policies, workflow redesign,
+            training sessions, and custom AI tools for research or operations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>For researchers</h3>
+          <p>
+            Quantitative methods support, manuscript development, data management,
+            analysis planning, literature synthesis, and community-engaged research design.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>For public health partners</h3>
+          <p>
+            HIV prevention, chronic disease prevention, health equity strategy,
+            community-informed messaging, and culturally responsive evaluation.
+          </p>
         </div>
       </div>
     </div>
@@ -442,10 +797,11 @@
 
   <section id="contact">
     <div class="container">
-      <div class="contact">
-        <h2>Let’s build something useful.</h2>
+      <div class="contact-card">
+        <h2>Let’s make the work clearer, stronger, and easier to act on.</h2>
         <p>
-          Have a program, dataset, report, proposal, or messy spreadsheet that needs structure?
+          Reach out for consulting, research collaboration, evaluation support,
+          AI training, data analysis, or public health strategy.
         </p>
         <a class="button primary" href="mailto:adelgado@sigresults.com">Email adelgado@sigresults.com</a>
       </div>
@@ -453,7 +809,7 @@
   </section>
 
   <footer>
-    © 2026 Adolph J. Delgado · Significant Results
+    © 2026 Adolph “AJ” Delgado, PhD · Significant Results LLC · Built with GitHub Pages
   </footer>
 </body>
 </html>
