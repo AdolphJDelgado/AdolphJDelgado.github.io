@@ -12,17 +12,17 @@
 
   <style>
     :root {
-      --ink: #322c27;
-      --ink-strong: #171717;
-      --muted: #756a60;
-      --canvas: #efe7dc;
-      --panel: #ffffff;
-      --panel-soft: #f8f1e8;
-      --line: #e2d3c2;
-      --accent: #a9692f;
-      --accent-2: #4f6546;
-      --accent-soft: #f4e4cf;
-      --shadow: 0 14px 30px rgba(44, 33, 24, 0.14);
+      --ink: #24201d;
+      --ink-strong: #0f1114;
+      --muted: #665b52;
+      --canvas: #101113;
+      --panel: #fffdf9;
+      --panel-soft: #f8efe3;
+      --line: #dccab6;
+      --accent: #c49350;
+      --accent-2: #263624;
+      --accent-soft: #f4e4ce;
+      --shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
       --radius: 10px;
       --container: 1140px;
     }
@@ -40,8 +40,11 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--canvas);
-      border-top: 6px solid var(--ink-strong);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(196, 147, 80, 0.2), transparent 24%),
+        radial-gradient(circle at 94% 10%, rgba(38, 54, 36, 0.38), transparent 28%),
+        var(--canvas);
+      border-top: 6px solid #050505;
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       font-size: 16px;
       line-height: 1.65;
@@ -117,8 +120,8 @@
       border: 8px solid #f7f9fd;
       border-radius: 999px;
       background:
-        linear-gradient(135deg, rgba(169, 105, 47, 0.18), rgba(79, 101, 70, 0.1)),
-        #f5ede3;
+        linear-gradient(135deg, rgba(196, 147, 80, 0.18), rgba(38, 54, 36, 0.1)),
+        #f4eadc;
       color: var(--ink-strong);
       font-size: 2.6rem;
       font-weight: 760;
@@ -218,6 +221,7 @@
       margin-top: 16px;
       padding: 10px;
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
       background: var(--panel-soft);
       border-radius: 8px;
@@ -225,7 +229,9 @@
     }
 
     .contact-strip a {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       padding: 8px 10px;
       border-radius: 7px;
       color: var(--ink);
@@ -263,7 +269,7 @@
       padding: 5px 10px;
       border-radius: 999px;
       background: var(--accent-soft);
-      color: #6a421f;
+      color: #5d4022;
       font-size: 0.82rem;
       font-weight: 680;
       display: inline-flex;
@@ -382,8 +388,8 @@
       height: 162px;
       border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 244, 0.76)),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 310'%3E%3Crect width='900' height='310' fill='%23fffaf4'/%3E%3Cg fill='none' stroke='%23c6aa86' stroke-width='2' opacity='0.72'%3E%3Cpath d='M120 250 C250 120 365 160 500 80 S735 60 850 170'/%3E%3Cpath d='M105 210 C250 85 370 120 520 48 S745 40 875 130'/%3E%3Cpath d='M155 285 C285 180 390 195 520 135 S720 100 840 220'/%3E%3Cpath d='M300 302 C390 230 460 238 560 178 S720 130 880 210'/%3E%3C/g%3E%3Cg fill='%23f2e6d7'%3E%3Ccircle cx='650' cy='130' r='82'/%3E%3Ccircle cx='260' cy='176' r='112'/%3E%3C/g%3E%3Cg fill='none' stroke='%237e8b68' stroke-width='3' opacity='0.44'%3E%3Cpath d='M205 298 C270 210 340 202 420 150 C510 92 600 85 700 20'/%3E%3Cpath d='M60 280 C170 210 230 112 350 92 C455 75 520 95 610 35'/%3E%3C/g%3E%3C/svg%3E");
+        linear-gradient(90deg, rgba(255, 253, 249, 0.96), rgba(255, 249, 241, 0.72)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 310'%3E%3Crect width='900' height='310' fill='%23fff9f1'/%3E%3Cg fill='none' stroke='%23c49350' stroke-width='2' opacity='0.3'%3E%3Cpath d='M120 250 C250 120 365 160 500 80 S735 60 850 170'/%3E%3Cpath d='M105 210 C250 85 370 120 520 48 S745 40 875 130'/%3E%3Cpath d='M155 285 C285 180 390 195 520 135 S720 100 840 220'/%3E%3Cpath d='M300 302 C390 230 460 238 560 178 S720 130 880 210'/%3E%3C/g%3E%3Cg fill='%23f4e4ce'%3E%3Ccircle cx='650' cy='130' r='82'/%3E%3Ccircle cx='260' cy='176' r='112'/%3E%3C/g%3E%3Cg fill='none' stroke='%23263624' stroke-width='3' opacity='0.26'%3E%3Cpath d='M205 298 C270 210 340 202 420 150 C510 92 600 85 700 20'/%3E%3Cpath d='M60 280 C170 210 230 112 350 92 C455 75 520 95 610 35'/%3E%3C/g%3E%3C/svg%3E");
       background-size: cover;
       background-position: center;
       animation: bannerDrift 12s ease-in-out infinite alternate;
@@ -520,6 +526,12 @@
       align-items: center;
     }
 
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+      min-width: 230px;
+    }
+
     .contact-panel h2 {
       font-size: 1.95rem;
     }
@@ -640,6 +652,10 @@
       .intro-layout,
       .contact-panel {
         grid-template-columns: 1fr;
+      }
+
+      .contact-actions {
+        min-width: 0;
       }
 
       .card-grid {
@@ -775,9 +791,17 @@
             <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
             Email
           </a>
-          <a href="#research">
-            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/><path d="M8 13h8"/></svg>
-            Research
+          <a href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+            CV
+          </a>
+          <a href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
+            Academic
+          </a>
+          <a href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg>
+            LinkedIn
           </a>
         </div>
       </section>
@@ -807,9 +831,9 @@
       <section class="sidebar-card mini-card">
         <h2>Current Roles</h2>
         <ul class="mini-list">
-          <li>Bridge to Faculty Postdoctoral Fellow, Public Health, UTSA</li>
+          <li>Bridge to Faculty Postdoctoral Fellow, Public Health</li>
           <li>Owner and Senior Data Scientist, Significant Results LLC</li>
-          <li>Assistant Professor of Instruction, UTSA</li>
+          <li>Assistant Professor of Instruction</li>
         </ul>
       </section>
     </aside>
@@ -831,7 +855,7 @@
               <span class="icon-badge" aria-hidden="true">
                 <svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
               </span>
-              <span><strong>Current</strong>UTSA and Significant Results LLC</span>
+              <span><strong>Current</strong>Academic appointment and Significant Results LLC</span>
             </li>
             <li>
               <span class="icon-badge" aria-hidden="true">
@@ -851,9 +875,9 @@
           <div class="two-column">
             <div>
               <p class="section-lede">
-                My work focuses on applied questions in public health and community settings.
-                Current topics include HIV prevention, chronic disease prevention, Latino
-                health, sexual minority health, and responsible uses of AI in research and teaching.
+                My work focuses on applied questions in public health practice and program settings.
+                Current topics include HIV prevention, chronic disease prevention,
+                population health, and responsible uses of AI in research and teaching.
               </p>
               <p>
                 I also support organizations with data analysis, evaluation, grants,
@@ -875,13 +899,13 @@
         <p class="kicker">Work</p>
         <h2>Areas of Focus</h2>
         <p class="section-lede">
-          These areas appear across my research, teaching, consulting, and community work.
+          These areas appear across my research, teaching, consulting, and applied public health work.
         </p>
 
         <div class="card-grid">
           <article class="small-card">
             <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg></span>Public Health</h3>
-            <p>HIV prevention, chronic disease prevention, Latino health, sexual minority health, and health equity.</p>
+            <p>HIV prevention, chronic disease prevention, population health, sexual health, and public health programs.</p>
           </article>
 
           <article class="small-card">
@@ -906,7 +930,7 @@
 
           <article class="small-card">
             <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 6V3"/><path d="M6 21v-3"/><path d="M18 21v-3"/><path d="M6 18a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4"/><circle cx="12" cy="10" r="4"/></svg></span>Consulting</h3>
-            <p>Applied analysis, grants, stakeholder facilitation, reporting, and support for community organizations.</p>
+            <p>Applied analysis, grants, stakeholder facilitation, reporting, and support for partner organizations.</p>
           </article>
         </div>
       </section>
@@ -929,8 +953,8 @@
             <div class="year">2025</div>
             <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
             <div>
-              <h3>Community resilience and trauma</h3>
-              <p>Collaborative article using a group-based participatory approach to examine community resilience and trauma.</p>
+              <h3>Resilience and trauma research</h3>
+              <p>Collaborative article using a group-based approach to examine resilience and trauma.</p>
             </div>
           </article>
 
@@ -956,8 +980,8 @@
             <div class="year">2016</div>
             <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
             <div>
-              <h3>Discrimination, stress, and health</h3>
-              <p>Journal article on discrimination, stress, sexual health, and behavioral health among sexual minority servicemen.</p>
+              <h3>Stress and health among servicemen</h3>
+              <p>Journal article on stress, sexual health, and behavioral health among servicemen.</p>
             </div>
           </article>
         </div>
@@ -1003,7 +1027,7 @@
             <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg></span>Public Health Strategy</h3>
             <ul>
               <li>HIV prevention</li>
-              <li>Community-informed messaging</li>
+              <li>Public health messaging</li>
               <li>Stakeholder facilitation</li>
             </ul>
           </article>
@@ -1019,10 +1043,24 @@
             grant support, or public health work.
           </p>
         </div>
-        <a class="button" href="mailto:adelgado@sigresults.com">
-          <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-          adelgado@sigresults.com
-        </a>
+        <div class="contact-actions">
+          <a class="button" href="mailto:adelgado@sigresults.com">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            Email AJ
+          </a>
+          <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+            View CV
+          </a>
+          <a class="button secondary" href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
+            Academic Profile
+          </a>
+          <a class="button secondary" href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg>
+            LinkedIn
+          </a>
+        </div>
       </section>
     </main>
   </div>
