@@ -3,94 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adolph Delgado</title>
+  <title>Adolph J. Delgado | Significant Results</title>
   <style>
+    :root {
+      --dark: #0f172a;
+      --blue: #2563eb;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #111;
+      background: var(--light);
+      color: var(--dark);
       line-height: 1.6;
     }
 
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 80px 24px;
+    }
+
     .container {
-      max-width: 850px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 60px 24px;
+    }
+
+    .hero {
+      max-width: 760px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    .tagline {
+      font-size: 24px;
+      color: #dbeafe;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: white;
+      color: #1e3a8a;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    section {
+      padding: 56px 24px;
     }
 
     .card {
       background: white;
-      padding: 40px;
+      border: 1px solid var(--border);
       border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      font-size: 44px;
-      margin-bottom: 10px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      margin-bottom: 24px;
     }
 
     h2 {
-      margin-top: 35px;
-      color: #333;
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
     }
 
     p {
       font-size: 18px;
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .muted {
+      color: var(--gray);
+    }
+
     a {
-      color: #0057b8;
-      text-decoration: none;
-      font-weight: bold;
+      color: var(--blue);
     }
 
-    .tagline {
-      font-size: 22px;
-      color: #555;
-      margin-bottom: 30px;
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--gray);
+      border-top: 1px solid var(--border);
     }
 
-    .footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .tagline {
+        font-size: 20px;
+      }
+
+      header {
+        padding: 56px 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Adolph Delgado</h1>
-      <p class="tagline">Data-driven consulting, evaluation, and analytics.</p>
-
-      <p>
-        I support organizations working to improve health, education, and community outcomes
-        through program evaluation, data analysis, reporting, and applied research.
+  <header>
+    <div class="container hero">
+      <h1>Adolph J. Delgado</h1>
+      <p class="tagline">
+        Data-driven consulting, program evaluation, and analytics for organizations working toward measurable results.
       </p>
+      <a class="button" href="mailto:adelgado@sigresults.com">Contact Me</a>
+      <a class="button" href="#work">View Work</a>
+    </div>
+  </header>
 
-      <h2>About</h2>
-      <p>
-        I work at the intersection of data, strategy, and public impact. My focus is helping
-        teams turn information into clear decisions and measurable results.
-      </p>
+  <section>
+    <div class="container">
+      <div class="card">
+        <h2>About</h2>
+        <p>
+          I support organizations that want to use data more clearly, strategically, and effectively.
+          My work focuses on program evaluation, applied research, data analysis, reporting, grant support,
+          and practical systems that help teams make better decisions.
+        </p>
+      </div>
 
-      <h2>Work</h2>
-      <p>
-        Significant Results provides consulting support for organizations that need help with
-        evaluation, analytics, grant development, reporting, and workflow design.
-      </p>
+      <div class="grid" id="work">
+        <div class="card">
+          <h3>Evaluation</h3>
+          <p>
+            Helping organizations understand what is working, what needs improvement, and how to tell a stronger story with evidence.
+          </p>
+        </div>
 
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:adelgado@sigresults.com">adelgado@sigresults.com</a>
-      </p>
+        <div class="card">
+          <h3>Analytics</h3>
+          <p>
+            Turning raw data into useful dashboards, reports, summaries, and decision-making tools.
+          </p>
+        </div>
 
-      <div class="footer">
-        © 2026 Adolph Delgado
+        <div class="card">
+          <h3>Strategy</h3>
+          <p>
+            Supporting planning, grant development, workflow design, and outcome-focused implementation.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Significant Results</h2>
+        <p>
+          Significant Results provides consulting support for organizations working to improve health,
+          education, workforce, and community outcomes.
+        </p>
+        <p class="muted">
+          Services include evaluation, data analysis, reporting, grant development, and AI-enabled workflow design.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Contact</h2>
+        <p>
+          Email: <a href="mailto:adelgado@sigresults.com">adelgado@sigresults.com</a>
+        </p>
       </div>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    © 2026 Adolph J. Delgado · Significant Results
+  </footer>
 </body>
 </html>
