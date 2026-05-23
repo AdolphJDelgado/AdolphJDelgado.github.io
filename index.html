@@ -4,27 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AJ Delgado, PhD | AI, Data, Public Health & Evaluation</title>
-  <meta name="description" content="AJ Delgado, PhD is an applied statistician, generative AI expert, public health researcher, and founder of Significant Results." />
+  <title>Adolph &quot;AJ&quot; Delgado, PhD | Public Health, Data, and AI</title>
+  <meta
+    name="description"
+    content="Adolph AJ Delgado, PhD works in applied demography, public health research, data analysis, evaluation, teaching, and generative AI."
+  />
 
   <style>
     :root {
-      --navy: #07111f;
-      --navy-2: #101d33;
-      --blue: #2563eb;
-      --cyan: #38bdf8;
-      --green: #22c55e;
-      --gold: #fbbf24;
-      --cream: #fff7ed;
-      --white: #ffffff;
-      --text: #111827;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --soft: #f8fafc;
-      --shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
+      --ink: #322c27;
+      --ink-strong: #171717;
+      --muted: #756a60;
+      --canvas: #efe7dc;
+      --panel: #ffffff;
+      --panel-soft: #f8f1e8;
+      --line: #e2d3c2;
+      --accent: #a9692f;
+      --accent-2: #4f6546;
+      --accent-soft: #f4e4cf;
+      --shadow: 0 14px 30px rgba(44, 33, 24, 0.14);
+      --radius: 10px;
+      --container: 1140px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
@@ -34,782 +39,1031 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--soft);
-      line-height: 1.6;
+      color: var(--ink);
+      background: var(--canvas);
+      border-top: 6px solid var(--ink-strong);
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    [hidden] {
+      display: none !important;
     }
 
     a {
       color: inherit;
     }
 
-    .container {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 26px;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(7, 17, 31, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .nav-inner {
-      max-width: 1160px;
-      margin: auto;
-      padding: 16px 26px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-    }
-
-    .brand {
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      font-size: 21px;
-    }
-
-    .brand span {
-      color: var(--cyan);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #dbeafe;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    header {
-      position: relative;
-      overflow: hidden;
-      color: white;
-      background:
-        radial-gradient(circle at 78% 12%, rgba(56,189,248,0.34), transparent 28%),
-        radial-gradient(circle at 15% 85%, rgba(251,191,36,0.22), transparent 30%),
-        linear-gradient(135deg, #07111f 0%, #0f172a 45%, #172554 100%);
-      padding: 96px 0 82px;
-    }
-
-    header::after {
-      content: "";
+    .skip-link {
       position: absolute;
-      inset: auto -20% -40% auto;
-      width: 620px;
-      height: 620px;
-      background: rgba(37, 99, 235, 0.22);
-      border-radius: 999px;
-      filter: blur(12px);
+      left: 16px;
+      top: 14px;
+      z-index: 20;
+      padding: 10px 14px;
+      color: #ffffff;
+      background: var(--ink-strong);
+      border-radius: var(--radius);
+      transform: translateY(-150%);
     }
 
-    .hero-grid {
-      position: relative;
-      z-index: 2;
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page {
+      width: min(100% - 40px, var(--container));
+      margin: 0 auto;
+      padding: 20px 0 34px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 46px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 13px;
-      border-radius: 999px;
-      background: rgba(56,189,248,0.14);
-      border: 1px solid rgba(186,230,253,0.35);
-      color: #bae6fd;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 24px;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 99px;
-      background: var(--green);
-      box-shadow: 0 0 18px var(--green);
-    }
-
-    h1 {
-      margin: 0 0 22px;
-      font-size: clamp(48px, 7vw, 84px);
-      line-height: 0.94;
-      letter-spacing: -0.075em;
-    }
-
-    .hero-copy {
-      font-size: 22px;
-      color: #dbeafe;
-      max-width: 750px;
-      margin-bottom: 34px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 900;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .primary {
-      background: white;
-      color: var(--navy);
-      box-shadow: 0 18px 38px rgba(0,0,0,0.25);
-    }
-
-    .secondary {
-      color: white;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .profile-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 34px;
-      padding: 30px;
-      box-shadow: 0 28px 80px rgba(0,0,0,0.32);
-    }
-
-    .profile-card h2 {
-      margin: 0 0 8px;
-      font-size: 31px;
-      letter-spacing: -0.04em;
-    }
-
-    .profile-card p {
-      color: #cbd5e1;
-      margin-top: 0;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .mini-item {
-      padding: 15px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .mini-item strong {
-      display: block;
-      color: white;
-      font-size: 16px;
-    }
-
-    .mini-item span {
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-head {
-      max-width: 790px;
-      margin-bottom: 36px;
-    }
-
-    .kicker {
-      color: var(--blue);
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: clamp(34px, 5vw, 52px);
-      line-height: 1.02;
-      letter-spacing: -0.055em;
-    }
-
-    .section-head p {
-      font-size: 19px;
-      color: var(--muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 30px;
-      box-shadow: 0 16px 42px rgba(15,23,42,0.07);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      letter-spacing: -0.035em;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: #eff6ff;
-      color: var(--blue);
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    .about-panel {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 34px;
-      padding: 42px;
-      box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
+      grid-template-columns: 254px minmax(0, 1fr);
+      gap: 24px;
       align-items: start;
     }
 
-    .about-panel p {
-      font-size: 18px;
-      color: #334155;
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      display: grid;
+      gap: 14px;
     }
 
-    .highlight-box {
-      background: linear-gradient(135deg, #eff6ff, #ecfeff);
-      border: 1px solid #bfdbfe;
-      border-radius: 26px;
-      padding: 28px;
+    .panel,
+    .sidebar-card {
+      background: var(--panel);
+      border: 1px solid rgba(216, 223, 235, 0.86);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .highlight-box h3 {
-      margin-top: 0;
-      font-size: 26px;
-      letter-spacing: -0.04em;
+    .profile-card {
+      padding: 20px 18px 16px;
+      text-align: center;
     }
 
-    .bullets {
-      padding-left: 20px;
-      color: #334155;
-    }
-
-    .bullets li {
-      margin-bottom: 10px;
-    }
-
-    .impact {
-      background: var(--navy);
-      color: white;
-      border-radius: 36px;
-      padding: 42px;
-      position: relative;
+    .avatar {
+      width: 126px;
+      height: 126px;
+      margin: 2px auto 18px;
+      display: grid;
+      place-items: center;
       overflow: hidden;
-    }
-
-    .impact::after {
-      content: "";
-      position: absolute;
-      right: -110px;
-      top: -130px;
-      width: 320px;
-      height: 320px;
-      background: rgba(56,189,248,0.18);
+      border: 8px solid #f7f9fd;
       border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(169, 105, 47, 0.18), rgba(79, 101, 70, 0.1)),
+        #f5ede3;
+      color: var(--ink-strong);
+      font-size: 2.6rem;
+      font-weight: 760;
+      box-shadow: inset 0 0 0 1px rgba(49, 95, 143, 0.08);
+      animation: avatarSettle 650ms ease both;
     }
 
-    .impact-grid {
-      position: relative;
-      z-index: 2;
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .avatar span {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      place-items: center;
+      width: 100%;
+      height: 100%;
     }
 
-    .impact-item {
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
+    .profile-card h1 {
+      margin: 0;
+      color: var(--ink-strong);
+      font-size: 1.3rem;
+      line-height: 1.25;
     }
 
-    .impact-item strong {
+    .profile-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .side-nav {
+      margin: 20px 0 0;
+      display: grid;
+      gap: 5px;
+      text-align: left;
+    }
+
+    .side-nav a {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      color: var(--ink);
+      font-weight: 720;
+      text-decoration: none;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .side-nav a:hover,
+    .side-nav a:focus-visible {
+      background: var(--accent-soft);
+      color: var(--ink-strong);
+      outline: 0;
+      transform: translateX(3px);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-sm {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-badge {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .contact-strip {
+      margin-top: 16px;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      background: var(--panel-soft);
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .contact-strip a {
       display: block;
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      color: white;
-      margin-bottom: 8px;
+      padding: 8px 10px;
+      border-radius: 7px;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 690;
+      text-decoration: none;
     }
 
-    .impact-item span {
-      color: #cbd5e1;
-      font-size: 14px;
+    .contact-strip a:hover,
+    .contact-strip a:focus-visible {
+      background: #ffffff;
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
-    .timeline {
+    .mini-card {
+      padding: 16px;
+    }
+
+    .mini-card h2 {
+      margin: 0 0 12px;
+      color: var(--ink-strong);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #6a421f;
+      font-size: 0.82rem;
+      font-weight: 680;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mini-list {
+      margin: 0;
+      padding: 0;
       display: grid;
-      gap: 18px;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      list-style: none;
     }
 
-    .timeline-item {
+    main {
       display: grid;
-      grid-template-columns: 150px 1fr;
       gap: 22px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 12px 34px rgba(15,23,42,0.06);
     }
 
-    .year {
-      font-weight: 900;
-      color: var(--blue);
+    .panel {
+      overflow: hidden;
+      animation: panelIn 520ms ease both;
     }
 
-    .timeline-item h3 {
-      margin: 0 0 6px;
-      font-size: 22px;
-      letter-spacing: -0.035em;
+    main .panel:nth-child(2) {
+      animation-delay: 70ms;
     }
 
-    .timeline-item p {
+    main .panel:nth-child(3) {
+      animation-delay: 120ms;
+    }
+
+    main .panel:nth-child(4) {
+      animation-delay: 170ms;
+    }
+
+    main .panel:nth-child(5) {
+      animation-delay: 220ms;
+    }
+
+    .intro-panel {
+      padding: 34px 40px;
+    }
+
+    .intro-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .intro-panel h2,
+    .content-panel h2,
+    .contact-panel h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 2.65rem;
+      line-height: 1.08;
+      font-weight: 740;
+    }
+
+    .intro-panel p {
+      max-width: 680px;
+      margin: 10px 0 0;
+      color: var(--ink);
+      font-size: 1.08rem;
+    }
+
+    .intro-notes {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .intro-notes li {
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      background: var(--panel-soft);
+      color: var(--muted);
+      line-height: 1.35;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    .intro-notes strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink-strong);
+      font-size: 0.9rem;
+    }
+
+    .intro-notes span:not(.icon-badge) {
+      display: block;
+    }
+
+    .banner {
+      height: 162px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 244, 0.76)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 310'%3E%3Crect width='900' height='310' fill='%23fffaf4'/%3E%3Cg fill='none' stroke='%23c6aa86' stroke-width='2' opacity='0.72'%3E%3Cpath d='M120 250 C250 120 365 160 500 80 S735 60 850 170'/%3E%3Cpath d='M105 210 C250 85 370 120 520 48 S745 40 875 130'/%3E%3Cpath d='M155 285 C285 180 390 195 520 135 S720 100 840 220'/%3E%3Cpath d='M300 302 C390 230 460 238 560 178 S720 130 880 210'/%3E%3C/g%3E%3Cg fill='%23f2e6d7'%3E%3Ccircle cx='650' cy='130' r='82'/%3E%3Ccircle cx='260' cy='176' r='112'/%3E%3C/g%3E%3Cg fill='none' stroke='%237e8b68' stroke-width='3' opacity='0.44'%3E%3Cpath d='M205 298 C270 210 340 202 420 150 C510 92 600 85 700 20'/%3E%3Cpath d='M60 280 C170 210 230 112 350 92 C455 75 520 95 610 35'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      animation: bannerDrift 12s ease-in-out infinite alternate;
+    }
+
+    .content-panel {
+      padding: 24px 28px 28px;
+    }
+
+    .content-panel h2 {
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 2.1rem;
+    }
+
+    .content-panel h3 {
+      margin: 0 0 8px;
+      color: var(--ink-strong);
+      font-size: 1.22rem;
+      line-height: 1.28;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .content-panel p {
       margin: 0;
       color: var(--muted);
     }
 
-    .quote-section {
-      background: linear-gradient(135deg, #fff7ed, #eff6ff);
+    .section-lede {
+      max-width: 760px;
+      margin: 16px 0 20px;
+      color: var(--ink);
+      font-size: 1.05rem;
     }
 
-    .quote {
-      max-width: 920px;
-      margin: auto;
-      text-align: center;
-      font-size: clamp(30px, 5vw, 52px);
-      line-height: 1.08;
-      letter-spacing: -0.055em;
-      font-weight: 900;
-      color: var(--navy);
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 22px;
+      align-items: start;
     }
 
-    .quote span {
-      color: var(--blue);
+    .facts {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      list-style: none;
     }
 
-    .contact-card {
-      background:
-        radial-gradient(circle at top right, rgba(56,189,248,0.28), transparent 30%),
-        linear-gradient(135deg, #2563eb, #0f172a);
-      color: white;
-      border-radius: 36px;
-      padding: 54px 34px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-card h2 {
-      color: white;
-    }
-
-    .contact-card p {
-      color: #dbeafe;
-      font-size: 19px;
-      max-width: 720px;
-      margin: 0 auto 28px;
-    }
-
-    footer {
-      padding: 36px 26px;
-      text-align: center;
+    .facts li {
+      padding: 13px 15px;
+      border-left: 4px solid var(--accent);
+      background: var(--panel-soft);
       color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: white;
+      line-height: 1.45;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .about-panel,
-      .grid-2,
-      .grid-3 {
+    .facts strong {
+      display: block;
+      color: var(--ink-strong);
+      font-size: 0.92rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .small-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .small-card:hover {
+      border-color: rgba(49, 95, 143, 0.38);
+      box-shadow: 0 10px 20px rgba(35, 54, 79, 0.09);
+      transform: translateY(-2px);
+    }
+
+    .small-card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .small-card li + li {
+      margin-top: 6px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 86px 34px minmax(0, 1fr);
+      gap: 18px;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+
+    .year {
+      color: var(--accent);
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .timeline-icon {
+      margin-top: 1px;
+    }
+
+    .contact-panel {
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      font-size: 1.95rem;
+    }
+
+    .contact-panel p {
+      max-width: 680px;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--ink-strong);
+      border-radius: 8px;
+      background: var(--ink-strong);
+      color: #ffffff;
+      font-weight: 720;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink-strong);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      outline: 0;
+      transform: translateY(-1px);
+    }
+
+    .site-footer {
+      width: min(100% - 40px, var(--container));
+      margin: 0 auto;
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @keyframes panelIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes avatarSettle {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bannerDrift {
+      from {
+        background-position: center 46%;
+      }
+
+      to {
+        background-position: center 56%;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .page {
         grid-template-columns: 1fr;
       }
 
-      .impact-grid {
+      .sidebar {
+        position: static;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.75fr);
+        align-items: start;
+      }
+
+      .profile-card {
+        text-align: left;
+      }
+
+      .avatar {
+        width: 104px;
+        height: 104px;
+        margin: 0 0 18px;
+        font-size: 2rem;
+      }
+
+      .side-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-strip {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-column,
+      .intro-layout,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page,
+      .site-footer {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .page {
+        padding-top: 16px;
+        gap: 18px;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card,
+      .content-panel,
+      .contact-panel {
+        padding: 20px;
+      }
+
+      .intro-panel {
+        padding: 26px 20px;
+      }
+
+      .intro-panel h2 {
+        font-size: 2.25rem;
+      }
+
+      .content-panel h2 {
+        font-size: 2rem;
+      }
+
+      .banner {
+        height: 126px;
+      }
+
+      .side-nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .side-nav a {
+        padding-inline: 10px;
+      }
+
+      .card-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
       }
 
       .timeline-item {
         grid-template-columns: 1fr;
+        gap: 5px;
       }
 
-      .nav-links {
+      .timeline-icon {
         display: none;
       }
 
-      header {
-        padding: 72px 0 64px;
+      .button {
+        width: 100%;
       }
     }
 
-    @media (max-width: 560px) {
-      .impact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card,
-      .about-panel,
-      .impact,
-      .contact-card {
-        padding: 26px;
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-inner">
-      <div class="brand">AJ Delgado<span>, PhD</span></div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#impact">Impact</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header>
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> Generative AI · Public Health · Applied Statistics</div>
-        <h1>Making data useful for people doing important work.</h1>
-        <p class="hero-copy">
-          I’m Adolph “AJ” Delgado, PhD — an applied demographer, public health researcher,
-          generative AI practitioner, and founder of Significant Results.
-        </p>
-        <div class="buttons">
-          <a class="button primary" href="mailto:adelgado@sigresults.com">Contact AJ</a>
-          <a class="button secondary" href="#work">Explore My Work</a>
+  <div class="page" id="top">
+    <aside class="sidebar" aria-label="Profile and navigation">
+      <section class="sidebar-card profile-card">
+        <div class="avatar">
+          <img
+            id="profile-photo"
+            src=""
+            alt="Adolph AJ Delgado"
+            data-candidates="https://drive.google.com/thumbnail?id=1mrLR460ReAzMCAyLLStSBzrIxJ0cs5j-&sz=w800,aj-photo.jpg,aj-photo.png,profile.jpg,profile.png,headshot.jpg,headshot.png"
+            hidden
+          />
+          <span hidden>AJ</span>
         </div>
-      </div>
+        <h1>Adolph &quot;AJ&quot; Delgado, PhD</h1>
+        <p>Public health researcher, applied demographer, educator, and data consultant.</p>
 
-      <aside class="profile-card">
-        <h2>What I do</h2>
-        <p>
-          I help universities, nonprofits, public health teams, and community partners turn
-          complex information into strategy, action, and measurable outcomes.
-        </p>
+        <nav class="side-nav" aria-label="Primary navigation">
+          <a href="#home">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.5V20h5v-5h4v5h5v-9.5"/></svg>
+            Home
+          </a>
+          <a href="#about">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v6"/><path d="M12 7h.01"/></svg>
+            About
+          </a>
+          <a href="#work">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
+            Work
+          </a>
+          <a href="#research">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+            Research
+          </a>
+          <a href="#services">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+            Services
+          </a>
+          <a href="#contact">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            Contact
+          </a>
+        </nav>
 
-        <div class="mini-list">
-          <div class="mini-item">
-            <strong>AI for Public Good</strong>
-            <span>Practical, responsible uses of generative AI in research, health, and education.</span>
+        <div class="contact-strip" aria-label="Quick links">
+          <a href="mailto:adelgado@sigresults.com">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            Email
+          </a>
+          <a href="#research">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/><path d="M8 13h8"/></svg>
+            Research
+          </a>
+        </div>
+      </section>
+
+      <section class="sidebar-card mini-card">
+        <h2>Focus</h2>
+        <div class="chips" aria-label="Focus areas">
+          <span class="chip">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg>
+            public health
+          </span>
+          <span class="chip">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
+            data analysis
+          </span>
+          <span class="chip">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            evaluation
+          </span>
+          <span class="chip">
+            <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m18.4 5.6-2.1 2.1"/><path d="m7.7 16.3-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
+            generative AI
+          </span>
+        </div>
+      </section>
+
+      <section class="sidebar-card mini-card">
+        <h2>Current Roles</h2>
+        <ul class="mini-list">
+          <li>Bridge to Faculty Postdoctoral Fellow, Public Health, UTSA</li>
+          <li>Owner and Senior Data Scientist, Significant Results LLC</li>
+          <li>Assistant Professor of Instruction, UTSA</li>
+        </ul>
+      </section>
+    </aside>
+
+    <main id="main">
+      <section class="panel intro-panel" id="home">
+        <div class="intro-layout">
+          <div>
+            <p class="eyebrow">Public health, data, evaluation, and AI</p>
+            <h2>Hi, I am AJ.</h2>
+            <p>
+              I work in applied demography, public health research, data analysis,
+              evaluation, teaching, and generative AI.
+            </p>
           </div>
 
-          <div class="mini-item">
-            <strong>Evaluation & Analytics</strong>
-            <span>Program evaluation, quantitative analysis, dashboards, and reporting.</span>
-          </div>
-
-          <div class="mini-item">
-            <strong>Community Health Equity</strong>
-            <span>Research and practice focused on HIV, chronic disease prevention, and underserved communities.</span>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </header>
-
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">About</div>
-        <h2>A researcher, teacher, and strategist with a community-first lens.</h2>
-        <p>
-          My work connects public health, applied statistics, generative AI, and real-world implementation.
-        </p>
-      </div>
-
-      <div class="about-panel">
-        <div>
-          <p>
-            I specialize in building practical solutions for organizations that need more than “data.”
-            They need clarity. They need strategy. They need evidence that can be explained to funders,
-            partners, leadership, and communities.
-          </p>
-
-          <p>
-            My background includes applied demography, public health research, quantitative methods,
-            HIV prevention, chronic disease prevention, health equity, database management, teaching,
-            grant development, and stakeholder facilitation.
-          </p>
-        </div>
-
-        <div class="highlight-box">
-          <h3>Current roles</h3>
-          <ul class="bullets">
-            <li><strong>Bridge to Faculty Postdoctoral Fellow</strong> in Public Health at UTSA.</li>
-            <li><strong>Owner & Senior Data Scientist</strong> at Significant Results LLC.</li>
-            <li><strong>Assistant Professor of Instruction</strong> at UTSA, teaching database management, quantitative analysis, and public health messaging.</li>
+          <ul class="intro-notes" aria-label="Profile summary">
+            <li>
+              <span class="icon-badge" aria-hidden="true">
+                <svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg>
+              </span>
+              <span><strong>Current</strong>UTSA and Significant Results LLC</span>
+            </li>
+            <li>
+              <span class="icon-badge" aria-hidden="true">
+                <svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/><path d="M16 15l2 2 4-4"/></svg>
+              </span>
+              <span><strong>Work</strong>Research, evaluation, teaching, and AI training</span>
+            </li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section id="work">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Work</div>
-        <h2>Where my work creates value.</h2>
-        <p>
-          I combine the technical side of data with the human side of decision-making.
+      <section class="panel" id="about">
+        <div class="banner" aria-hidden="true"></div>
+        <div class="content-panel">
+          <p class="kicker">About</p>
+          <h2>Overview</h2>
+          <div class="two-column">
+            <div>
+              <p class="section-lede">
+                My work focuses on applied questions in public health and community settings.
+                Current topics include HIV prevention, chronic disease prevention, Latino
+                health, sexual minority health, and responsible uses of AI in research and teaching.
+              </p>
+              <p>
+                I also support organizations with data analysis, evaluation, grants,
+                reporting, stakeholder facilitation, and public health communication.
+              </p>
+            </div>
+
+            <ul class="facts" aria-label="Education">
+              <li><strong>PhD</strong>Applied Demography, UTSA, 2023</li>
+              <li><strong>MEd</strong>Quantitative Methods, UT Austin, 2019</li>
+              <li><strong>MS</strong>Health and Kinesiology, UTSA, 2014</li>
+              <li><strong>BA</strong>Psychology, UTSA, 2010</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel content-panel" id="work">
+        <p class="kicker">Work</p>
+        <h2>Areas of Focus</h2>
+        <p class="section-lede">
+          These areas appear across my research, teaching, consulting, and community work.
         </p>
-      </div>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon">AI</div>
-          <h3>Generative AI Strategy</h3>
-          <p>
-            Workshops, training, responsible AI guidance, custom chatbot development, and practical
-            AI workflows for research, education, public service, and health communication.
-          </p>
+        <div class="card-grid">
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg></span>Public Health</h3>
+            <p>HIV prevention, chronic disease prevention, Latino health, sexual minority health, and health equity.</p>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg></span>Data Analysis</h3>
+            <p>Quantitative analysis, demographic methods, survey analysis, database management, and reporting.</p>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Evaluation</h3>
+            <p>Evaluation planning, measurement, data collection, interpretation, and written deliverables.</p>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m18.4 5.6-2.1 2.1"/><path d="m7.7 16.3-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>Generative AI</h3>
+            <p>Training, prompt design, responsible use guidance, and AI-supported workflows.</p>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/></svg></span>Teaching</h3>
+            <p>Statistics, database management, quantitative analysis, public health messaging, and AI.</p>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 6V3"/><path d="M6 21v-3"/><path d="M18 21v-3"/><path d="M6 18a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4"/><circle cx="12" cy="10" r="4"/></svg></span>Consulting</h3>
+            <p>Applied analysis, grants, stakeholder facilitation, reporting, and support for community organizations.</p>
+          </article>
         </div>
+      </section>
 
-        <div class="card">
-          <div class="icon">Σ</div>
-          <h3>Applied Statistics</h3>
-          <p>
-            Quantitative analysis, population health research, survey support, health data analysis,
-            reporting, database design, and translation of technical findings.
-          </p>
+      <section class="panel content-panel" id="research">
+        <p class="kicker">Research</p>
+        <h2>Selected Research</h2>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="year">2026</div>
+            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/></svg></span>
+            <div>
+              <h3>HIV status in Bexar County, Texas</h3>
+              <p>PLOS ONE article on HIV status, sociodemographic characteristics, and sexual behavior among men in Bexar County.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="year">2025</div>
+            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div>
+              <h3>Community resilience and trauma</h3>
+              <p>Collaborative article using a group-based participatory approach to examine community resilience and trauma.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="year">2023</div>
+            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+            <div>
+              <h3>The State of HIV</h3>
+              <p>Doctoral dissertation on the Ending the HIV Epidemic initiative in the United States.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="year">2018</div>
+            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></span>
+            <div>
+              <h3>Social norms and oral PrEP use</h3>
+              <p>AIDS and Behavior publication on PrEP-related norms among men who have sex with men in Texas.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="year">2016</div>
+            <span class="icon-badge timeline-icon" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
+            <div>
+              <h3>Discrimination, stress, and health</h3>
+              <p>Journal article on discrimination, stress, sexual health, and behavioral health among sexual minority servicemen.</p>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <div class="card">
-          <div class="icon">♥</div>
-          <h3>Community Health</h3>
-          <p>
-            Community-engaged research, HIV prevention, chronic disease prevention, health equity,
-            stakeholder engagement, and culturally grounded public health practice.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="impact">
-    <div class="container">
-      <div class="impact">
-        <div class="section-head">
-          <div class="kicker" style="color:#93c5fd;">Selected impact</div>
-          <h2>Evidence, funding, teaching, and community practice.</h2>
-          <p style="color:#cbd5e1;">
-            A few highlights from my academic, consulting, and public health work.
-          </p>
-        </div>
-
-        <div class="impact-grid">
-          <div class="impact-item">
-            <strong>PhD</strong>
-            <span>Applied Demography, University of Texas at San Antonio.</span>
-          </div>
-
-          <div class="impact-item">
-            <strong>500+</strong>
-            <span>Citations for a peer-reviewed publication on educational technology.</span>
-          </div>
-
-          <div class="impact-item">
-            <strong>2019–Now</strong>
-            <span>Owner and Senior Data Scientist at Significant Results LLC.</span>
-          </div>
-
-          <div class="impact-item">
-            <strong>AI + Health</strong>
-            <span>Training and workshops on generative AI for public health and social science.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">CV Highlights</div>
-        <h2>Selected work worth knowing.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="year">Research</div>
-          <div>
-            <h3>HIV, health equity, and population health</h3>
-            <p>
-              Published and presented work on HIV prevention, health disparities, syndemic factors,
-              COVID-19 mortality, Latino health, sexual minority health, and community-informed public health strategies.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="year">AI Practice</div>
-          <div>
-            <h3>Generative AI workshops and public service innovation</h3>
-            <p>
-              Delivered workshops on ChatGPT, DALL·E, custom chatbots, responsible AI use,
-              academic excellence, social work innovation, and AI for local public health.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="year">Funding</div>
-          <div>
-            <h3>Grant development and funded public health projects</h3>
-            <p>
-              Served as principal investigator or co-principal investigator on awarded, submitted,
-              and pending projects involving HIV prevention, community health, health equity,
-              arts and healing, and generative AI-supported trusted messengers.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="year">Teaching</div>
-          <div>
-            <h3>Database management, quantitative analysis, and public health messaging</h3>
-            <p>
-              Teaches and mentors students while translating complex technical material into
-              practical skills for research, data work, and public health communication.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="quote-section">
-    <div class="container">
-      <div class="quote">
-        Good data work is not about making things more complicated.
-        It is about making the next right decision <span>clearer.</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Services</div>
-        <h2>How I can help.</h2>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>For organizations</h3>
-          <p>
-            Evaluation plans, data cleanup, dashboards, grant reporting, needs assessments,
-            survey design, stakeholder facilitation, and impact storytelling.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>For teams exploring AI</h3>
-          <p>
-            AI readiness, prompt design, responsible use policies, workflow redesign,
-            training sessions, and custom AI tools for research or operations.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>For researchers</h3>
-          <p>
-            Quantitative methods support, manuscript development, data management,
-            analysis planning, literature synthesis, and community-engaged research design.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>For public health partners</h3>
-          <p>
-            HIV prevention, chronic disease prevention, health equity strategy,
-            community-informed messaging, and culturally responsive evaluation.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <h2>Let’s make the work clearer, stronger, and easier to act on.</h2>
-        <p>
-          Reach out for consulting, research collaboration, evaluation support,
-          AI training, data analysis, or public health strategy.
+      <section class="panel content-panel" id="services">
+        <p class="kicker">Services</p>
+        <h2>Ways to Work Together</h2>
+        <p class="section-lede">
+          I work with organizations and research teams that need support with data,
+          evaluation, public health strategy, and AI training.
         </p>
-        <a class="button primary" href="mailto:adelgado@sigresults.com">Email adelgado@sigresults.com</a>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    © 2026 Adolph “AJ” Delgado, PhD · Significant Results LLC · Built with GitHub Pages
+        <div class="service-grid">
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Evaluation and Reporting</h3>
+            <ul>
+              <li>Evaluation plans</li>
+              <li>Data collection and analysis</li>
+              <li>Grant and program reports</li>
+            </ul>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M9 3v5l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 17L15 8V3"/><path d="M8 3h8"/></svg></span>Research Support</h3>
+            <ul>
+              <li>Quantitative methods</li>
+              <li>Data management</li>
+              <li>Manuscript and presentation support</li>
+            </ul>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m18.4 5.6-2.1 2.1"/><path d="m7.7 16.3-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>AI Training</h3>
+            <ul>
+              <li>Introductory workshops</li>
+              <li>Responsible use guidance</li>
+              <li>Workflow and prompt support</li>
+            </ul>
+          </article>
+
+          <article class="small-card">
+            <h3><span class="icon-badge" aria-hidden="true"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a7 7 0 0 1 14 0c0 6.6-7 11-7 11Z"/><path d="M9 10h6"/><path d="M12 7v6"/></svg></span>Public Health Strategy</h3>
+            <ul>
+              <li>HIV prevention</li>
+              <li>Community-informed messaging</li>
+              <li>Stakeholder facilitation</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel contact-panel" id="contact">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2>Contact AJ</h2>
+          <p>
+            For consulting, research collaboration, evaluation, AI training, data analysis,
+            grant support, or public health work.
+          </p>
+        </div>
+        <a class="button" href="mailto:adelgado@sigresults.com">
+          <svg class="icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          adelgado@sigresults.com
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2026 Adolph &quot;AJ&quot; Delgado, PhD. Significant Results LLC.
   </footer>
+
+  <script>
+    const profilePhoto = document.getElementById("profile-photo");
+    const profileFallback = profilePhoto ? profilePhoto.nextElementSibling : null;
+
+    if (profilePhoto && profileFallback) {
+      const candidates = profilePhoto.dataset.candidates.split(",");
+      let index = 0;
+
+      const showFallback = () => {
+        profilePhoto.hidden = true;
+        profileFallback.hidden = false;
+      };
+
+      const tryNextPhoto = () => {
+        if (index >= candidates.length) {
+          showFallback();
+          return;
+        }
+
+        profileFallback.hidden = true;
+        profilePhoto.hidden = false;
+        profilePhoto.src = candidates[index].trim();
+        index += 1;
+      };
+
+      profilePhoto.addEventListener("load", () => {
+        profilePhoto.hidden = false;
+        profileFallback.hidden = true;
+      });
+
+      profilePhoto.addEventListener("error", tryNextPhoto);
+      tryNextPhoto();
+    }
+  </script>
 </body>
 </html>
