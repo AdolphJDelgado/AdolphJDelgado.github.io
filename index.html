@@ -1,458 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-  <title>Adolph &quot;AJ&quot; Delgado, PhD | Public Health, Data, and AI</title>
-  <title>Adolph &quot;AJ&quot; Delgado, PhD | Applied AI &amp; Public Health Data Science</title>
+  <title>AJ Delgado, PhD | Public Health Research, Evaluation, Data Analysis, and AI Training</title>
   <meta
     name="description"
-    content="Adolph AJ Delgado, PhD works in applied demography, public health research, data analysis, evaluation, teaching, and generative AI."
-    content="Adolph AJ Delgado, PhD is an applied AI and public health data scientist working across statistical modeling, demographic methods, evaluation, and responsible LLM workflows."
+    content="AJ Delgado, PhD helps public health organizations, research teams, and nonprofits with evaluation, applied data analysis, grant reporting, research support, and responsible AI training."
   />
-  <meta property="og:title" content="Adolph AJ Delgado, PhD | Applied AI &amp; Public Health Data Science" />
-  <meta property="og:description" content="Applied AI, public health data science, statistical modeling, evaluation, and responsible LLM workflows." />
-  <meta property="og:type" content="website" />
 
-  <script>
-    document.documentElement.classList.add("js-enabled");
-  </script>
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-
-    .skill-cloud,
-    .role-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+  <style>
+    :root {
+      --black: #08090b;
+      --black-2: #111317;
+      --panel: #fbf8f2;
+      --panel-2: #f1e8db;
+      --line-dark: #ddcfbd;
+      --text: #f9f3ea;
+      --text-dark: #1e1c19;
+      --muted: #bdb4a8;
+      --muted-dark: #6e6258;
+      --gold: #c49350;
+      --gold-soft: #f3dfc2;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 10px;
+      --container: 1140px;
     }
 
-    .skill-chip,
-    .role-card {
-      display: inline-flex;
-      align-items: center;
-      min-height: 40px;
-      padding: 9px 12px;
-      border: 1px solid var(--line-dark);
-      border-radius: 999px;
-      background: #fffaf3;
-      color: var(--text-dark);
-      font-weight: 740;
-      line-height: 1.2;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    .role-card {
-      border-color: rgba(196, 147, 80, 0.44);
-      background: rgba(196, 147, 80, 0.1);
-      color: var(--text);
-    }
-
-    .section {
-    .point,
-    .case-card,
-    .research-card,
-    .point strong,
-    .case-card h3,
-    .research-card h3,
-    .research-grid,
-    .case-grid,
-    .services-grid {
-
-    .case-card {
-      display: grid;
-      gap: 14px;
-    }
-
-    .case-card h3 {
-      margin-bottom: 0;
-    }
-
-    .case-meta {
-      display: grid;
-      gap: 10px;
+    body {
       margin: 0;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(196, 147, 80, 0.18), transparent 26%),
+        radial-gradient(circle at 85% 4%, rgba(38, 54, 36, 0.34), transparent 30%),
+        var(--black);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
     }
 
-    .case-meta div {
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+
+    .skip-link {
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--text-dark);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(250, 244, 234, 0.12);
+      background: rgba(8, 9, 11, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      color: var(--text);
+      font-weight: 760;
+      line-height: 1.15;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 680;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a.active {
+      background: rgba(196, 147, 80, 0.18);
+      color: var(--text);
+      outline: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(250, 244, 234, 0.1);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: min(52vw, 690px);
+      height: 100%;
+      padding: clamp(42px, 6vw, 88px) 0 clamp(34px, 5vw, 70px) clamp(28px, 4vw, 68px);
+      object-fit: contain;
+      object-position: right center;
+      opacity: 0.86;
+      filter: saturate(0.95) contrast(1.02);
+      z-index: -3;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(8, 9, 11, 1) 0%, rgba(8, 9, 11, 0.94) 43%, rgba(8, 9, 11, 0.62) 72%, rgba(8, 9, 11, 0.24) 100%),
+        linear-gradient(180deg, rgba(8, 9, 11, 0.2), rgba(8, 9, 11, 0.9));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 40%;
+      z-index: -1;
+      background: linear-gradient(0deg, var(--black), transparent);
+    }
+
+    .hero-inner {
+      min-height: 82vh;
       display: grid;
-      gap: 2px;
+      align-items: center;
+      padding: 96px 0 68px;
     }
 
-    .case-meta dt {
-      color: #7d562a;
-      font-size: 0.78rem;
-      font-weight: 850;
-      letter-spacing: 0.08em;
+    .hero-copy { max-width: 720px; }
+
+    .eyebrow, .kicker {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    .case-meta dd {
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+
+    h1 {
       margin: 0;
+      color: var(--text);
+      font-size: clamp(2.9rem, 7vw, 5.6rem);
+      line-height: 1;
+      font-weight: 790;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: #e8dfd4;
+      font-size: 1.17rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 17px;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      background: var(--gold);
+      color: #121212;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .button.secondary {
+      background: rgba(251, 248, 242, 0.08);
+      color: var(--text);
+      border-color: rgba(251, 248, 242, 0.24);
+    }
+
+    .button:hover, .button:focus-visible {
+      transform: translateY(-2px);
+      outline: 0;
+    }
+
+    .button.secondary:hover, .button.secondary:focus-visible {
+      background: rgba(251, 248, 242, 0.16);
+      border-color: rgba(251, 248, 242, 0.42);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ticker {
+      border-block: 1px solid rgba(250, 244, 234, 0.12);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .ticker-track {
+      width: max-content;
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      animation: ticker 55s linear infinite;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(196, 147, 80, 0.34);
+      border-radius: 999px;
+      color: #ead7bd;
+      background: rgba(196, 147, 80, 0.08);
+      font-weight: 720;
+      white-space: nowrap;
+    }
+
+    main { padding: 58px 0 70px; }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+
+    .quick-link {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid rgba(250, 244, 234, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-weight: 760;
+      text-decoration: none;
+      transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+    }
+
+    .quick-link:hover, .quick-link:focus-visible {
+      border-color: rgba(196, 147, 80, 0.65);
+      background: rgba(196, 147, 80, 0.12);
+      transform: translateY(-2px);
+      outline: 0;
+    }
+
+    .section {
+      margin-top: 26px;
+      padding: 32px;
+      border: 1px solid rgba(250, 244, 234, 0.12);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--text-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .section.dark {
+      background:
+        linear-gradient(135deg, rgba(196, 147, 80, 0.1), transparent 42%),
+        var(--black-2);
+      color: var(--text);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.76fr) minmax(260px, 0.24fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.05;
+      font-weight: 790;
+    }
+
+    .section-head p, .section p { color: var(--muted-dark); }
+    .section.dark .section-head p, .section.dark p { color: #d7cbbb; }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-left: 4px solid var(--gold);
+      background: var(--panel-2);
+      border-radius: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text-dark);
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .stat span {
+      color: var(--muted-dark);
+      font-size: 0.92rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+      gap: 18px;
+    }
+
+    .profile-copy { font-size: 1.05rem; }
+
+    .fact-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fact-list li {
+      padding: 14px 15px;
+      border: 1px solid var(--line-dark);
+      border-left: 5px solid var(--gold);
+      border-radius: 8px;
+      background: #fffaf3;
       color: var(--muted-dark);
     }
 
-    .research-card,
-    .case-card,
-    .service-card {
-    .research-card:hover,
-    .case-card:hover,
-    .service-card:hover {
-    .reveal {
-      opacity: 1;
-      transform: none;
+    .fact-list strong {
+      display: block;
+      color: var(--text-dark);
+      font-size: 0.94rem;
     }
 
-    .js-enabled .reveal {
+    .tabs {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .tab-list {
+      display: grid;
+      gap: 10px;
+      align-self: start;
+    }
+
+    .tab-button {
+      width: 100%;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 14px;
+      border: 1px solid rgba(250, 244, 234, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      color: #d8d0c8;
+      font: inherit;
+      font-weight: 760;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .tab-button:hover, .tab-button:focus-visible, .tab-button.active {
+      border-color: rgba(196, 147, 80, 0.68);
+      background: rgba(196, 147, 80, 0.16);
+      color: var(--text);
+      transform: translateX(3px);
+      outline: 0;
+    }
+
+    .tab-panel {
+      min-height: 310px;
+      padding: 28px;
+      border: 1px solid rgba(250, 244, 234, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tab-panel h3 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .tab-panel p {
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .tab-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point, .research-card, .service-card {
+      padding: 18px;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius);
+      background: #fffaf3;
+      color: var(--text-dark);
+    }
+
+    .point {
+      border-color: rgba(250, 244, 234, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .point strong, .research-card h3, .service-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 8px;
+      color: inherit;
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+
+    .icon-badge {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      background: var(--gold-soft);
+      color: #6f4d25;
+    }
+
+    .research-grid, .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .research-card, .service-card {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .research-card:hover, .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(38, 34, 29, 0.12);
+    }
+
+    .year {
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: #7d562a;
+      font-weight: 800;
+    }
+
+    .service-card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--muted-dark);
+    }
+
+    .contact-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .site-footer {
+      padding: 32px 0 46px;
+      color: #8e867e;
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .reveal {
       opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
 
     .reveal.visible {
-    .js-enabled .reveal.visible {
       opacity: 1;
-      .research-grid,
-      .case-grid,
-      .services-grid,
+      transform: translateY(0);
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-photo {
+        width: 100%;
+        padding: 80px 0 20px;
+        opacity: 0.42;
+        object-position: right center;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(8, 9, 11, 0.96), rgba(8, 9, 11, 0.72)),
+          linear-gradient(180deg, rgba(8, 9, 11, 0.18), rgba(8, 9, 11, 0.92));
+      }
+
+      .quick-grid, .research-grid, .services-grid, .tab-points {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head, .profile-grid, .tabs, .contact-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, var(--container)); }
 
       .nav {
+        min-height: auto;
         align-items: flex-start;
         flex-direction: column;
-        padding: 12px 0;
+        padding: 14px 0;
+        gap: 10px;
       }
 
       .nav-links {
-        display: none;
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         gap: 6px;
-        overflow-x: auto;
-        padding-bottom: 2px;
       }
-      .research-grid,
-      .case-grid,
-      .services-grid,
+
+      .nav-links a {
+        padding: 7px 10px;
+        font-size: 0.85rem;
+      }
+
+      .hero, .hero-inner { min-height: 78vh; }
+      .hero-inner { padding: 52px 0 46px; }
+      h1 { font-size: 3rem; }
+
+      .quick-grid, .mini-stats, .research-grid, .services-grid, .tab-points {
+        grid-template-columns: 1fr;
+      }
+
+      .section { padding: 22px; }
+      .button, .quick-link { width: 100%; }
+      .actions { display: grid; }
+      .tab-panel { padding: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary navigation">
+      <a class="brand" href="#home">
+        Adolph &quot;AJ&quot; Delgado
+        <span>PhD</span>
+      </a>
+      <div class="nav-links">
         <a href="#profile">Profile</a>
-        <a href="#skills">Skills</a>
-        <a href="#portfolio">Projects</a>
-        <a href="#cv-map">CV Map</a>
         <a href="#work">Work</a>
         <a href="#research">Research</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img
+      class="hero-photo"
+      src="https://drive.google.com/thumbnail?id=1mrLR460ReAzMCAyLLStSBzrIxJ0cs5j-&sz=w1200"
+      alt="Adolph AJ Delgado, PhD"
+    />
+    <div class="container hero-inner">
       <div class="hero-copy reveal">
         <p class="eyebrow">Public health, data, evaluation, and AI</p>
         <h1>Adolph &quot;AJ&quot; Delgado, PhD</h1>
-        <p class="eyebrow">Adolph &quot;AJ&quot; Delgado, PhD</p>
-        <h1>Applied AI &amp; Public Health Data Scientist</h1>
         <p>
-          Applied demographer, public health researcher, educator, and data consultant
-          working across research, evaluation, teaching, and generative AI.
-          I use statistical modeling, demographic methods, and generative AI workflows
-          to help research teams, public health organizations, and program partners
-          turn complex data into decisions.
+          I help public health organizations, research teams, and nonprofits turn data,
+          evaluation, and AI into clearer decisions, stronger reporting, and measurable impact.
         </p>
+        <div class="actions">
+          <a class="button" href="mailto:adelgado@sigresults.com">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            Book a Consultation
           </a>
           <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
-          <a class="button secondary" href="AJ-Delgado-CV.pdf">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
             View CV
-            Download CV
-          </a>
-          <a class="button secondary" href="#portfolio">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
-            View Projects
           </a>
         </div>
-      <span class="tag">Applied demography</span>
-      <span class="tag">Public health research</span>
-      <span class="tag">Data analysis</span>
-      <span class="tag">Applied AI</span>
-      <span class="tag">LLM workflows</span>
-      <span class="tag">Statistical modeling</span>
-      <span class="tag">Python / R / SQL</span>
-      <span class="tag">Survey analysis</span>
-      <span class="tag">Evaluation</span>
-      <span class="tag">Teaching</span>
-      <span class="tag">Generative AI</span>
-      <span class="tag">Grant support</span>
-      <span class="tag">Public health messaging</span>
-      <span class="tag">Research reporting</span>
-      <span class="tag">Applied demography</span>
-      <span class="tag">Public health research</span>
-      <span class="tag">Data analysis</span>
-      <span class="tag">Applied AI</span>
-      <span class="tag">LLM workflows</span>
-      <span class="tag">Statistical modeling</span>
-      <span class="tag">Python / R / SQL</span>
-      <span class="tag">Survey analysis</span>
-      <span class="tag">Evaluation</span>
-      <span class="tag">Teaching</span>
-      <span class="tag">Generative AI</span>
-      <span class="tag">Grant support</span>
-      <span class="tag">Public health messaging</span>
-      <span class="tag">Research reporting</span>
+      </div>
     </div>
-        </a>
-        <a class="quick-link" href="AJ-Delgado-CV.pdf">
-          <span>CV PDF</span>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-        </a>
-        <a class="quick-link" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
-          <span>CV</span>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-          <span>Full CV</span>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6v20h12V8z"/><path d="M14 2v6h4"/><path d="M9 15h6"/><path d="M9 18h4"/></svg>
-        </a>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="tag">Applied demography</span>
+      <span class="tag">Public health research</span>
+      <span class="tag">Evaluation</span>
+      <span class="tag">Data analysis</span>
+      <span class="tag">Grant reporting</span>
+      <span class="tag">AI training</span>
+      <span class="tag">Research support</span>
+      <span class="tag">Public health messaging</span>
+      <span class="tag">Applied demography</span>
+      <span class="tag">Public health research</span>
+      <span class="tag">Evaluation</span>
+      <span class="tag">Data analysis</span>
+      <span class="tag">Grant reporting</span>
+      <span class="tag">AI training</span>
+      <span class="tag">Research support</span>
+      <span class="tag">Public health messaging</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="container">
+      <div class="quick-grid reveal" aria-label="Professional links">
+        <a class="quick-link" href="mailto:adelgado@sigresults.com"><span>Email</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+        <a class="quick-link" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener"><span>CV</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></a>
+        <a class="quick-link" href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener"><span>Academic</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 22v-6h6v6"/><path d="M8 9h.01"/><path d="M12 9h.01"/><path d="M16 9h.01"/></svg></a>
+        <a class="quick-link" href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener"><span>LinkedIn</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10"/><path d="M6 5.5v.01"/><path d="M11 19v-6a4 4 0 0 1 8 0v6"/><path d="M11 9v10"/></svg></a>
+      </div>
+
+      <section class="section reveal" id="profile">
+        <div class="section-head">
+          <div>
             <p class="kicker">Profile</p>
             <h2>Applied research for public health and program settings.</h2>
-            <h2>Applied AI, statistics, and public health research.</h2>
           </div>
-            <div class="stat"><strong>2019</strong><span>Significant Results LLC</span></div>
-            <div class="stat"><strong>AI</strong><span>Training and workflows</span></div>
-            <div class="stat"><strong>AI</strong><span>LLM workflows and training</span></div>
+          <div class="mini-stats">
+            <div class="stat"><strong>PhD</strong><span>Applied Demography</span></div>
+            <div class="stat"><strong>Research + Consulting</strong><span>Public health and evaluation support</span></div>
+            <div class="stat"><strong>AI Training</strong><span>Workshops and workflow design</span></div>
           </div>
-            <p>
-              My work focuses on applied public health questions, data analysis,
-              evaluation, grants, reporting, stakeholder facilitation, and public health
-              I am an applied AI and public health data scientist with training in
-              demographic methods, quantitative research, evaluation, and research
-              communication.
-            <p>
-              Current topics include HIV prevention, chronic disease prevention,
-              population health, and responsible uses of AI in research and teaching.
-              My work sits in a practical lane: building research-ready data workflows,
-              explaining statistical results clearly, and helping teams use LLM tools
-              with appropriate review, limitations, and quality control.
-            </p>
-
-      <section class="section reveal" id="skills">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Technical Skills</p>
-            <h2>Tools and methods recruiters can scan quickly.</h2>
-          </div>
-          <p>
-            A practical mix of coding, statistics, data management, evaluation,
-            and applied LLM work.
-          </p>
         </div>
-
-        <div class="skill-cloud" aria-label="Technical skills">
-          <span class="skill-chip">Python</span>
-          <span class="skill-chip">R</span>
-          <span class="skill-chip">SQL</span>
-          <span class="skill-chip">SPSS</span>
-          <span class="skill-chip">pandas</span>
-          <span class="skill-chip">NumPy</span>
-          <span class="skill-chip">scikit-learn</span>
-          <span class="skill-chip">statsmodels</span>
-          <span class="skill-chip">tidyverse / dplyr</span>
-          <span class="skill-chip">ggplot2</span>
-          <span class="skill-chip">survey analysis</span>
-          <span class="skill-chip">statistical modeling</span>
-          <span class="skill-chip">logistic regression</span>
-          <span class="skill-chip">demographic methods</span>
-          <span class="skill-chip">database management</span>
-          <span class="skill-chip">data cleaning</span>
-          <span class="skill-chip">program evaluation</span>
-          <span class="skill-chip">LLM prompting</span>
-          <span class="skill-chip">custom GPTs / chatbots</span>
-          <span class="skill-chip">AI workflow design</span>
-          <span class="skill-chip">responsible AI guidance</span>
-          <span class="skill-chip">research reporting</span>
-          <span class="skill-chip">Git / GitHub</span>
+        <div class="profile-grid">
+          <div class="profile-copy">
+            <p>My work focuses on practical public health questions: how to collect better data, make sense of complex findings, communicate results clearly, and support decisions that improve programs and communities.</p>
+            <p>Current areas include HIV prevention, chronic disease prevention, population health, evaluation, public health communication, and responsible uses of AI in research, teaching, and organizational workflows.</p>
+          </div>
+          <ul class="fact-list" aria-label="Education">
+            <li><strong>PhD</strong>Applied Demography, UTSA, 2023</li>
+            <li><strong>MEd</strong>Quantitative Methods, UT Austin, 2019</li>
+            <li><strong>MS</strong>Health and Kinesiology, UTSA, 2014</li>
+            <li><strong>BA</strong>Psychology, UTSA, 2010</li>
+          </ul>
         </div>
       </section>
 
-      <section class="section reveal" id="portfolio">
+      <section class="section reveal" aria-labelledby="impact-title">
         <div class="section-head">
           <div>
-            <p class="kicker">AI / Data Portfolio</p>
-            <h2>Selected applied projects and workflows.</h2>
+            <p class="kicker">Impact</p>
+            <h2 id="impact-title">Applied work with useful, stakeholder-ready outputs.</h2>
           </div>
-          <p>
-            Short case studies that show the technical shape of the work without
-            turning the homepage into a full project archive.
-          </p>
+          <p>I focus on work that teams can actually use: reports, analyses, trainings, presentations, grant materials, and decision support.</p>
         </div>
-
-        <div class="case-grid">
-          <article class="case-card">
-            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><circle cx="12" cy="12" r="3"/></svg></span>Responsible AI Workflow for Public Health Research</h3>
-            <dl class="case-meta">
-              <div>
-                <dt>Problem</dt>
-                <dd>Research and public health teams needed practical ways to use LLM tools without losing quality control.</dd>
-              </div>
-              <div>
-                <dt>Data / Tools</dt>
-                <dd>ChatGPT, DALL-E, custom chatbots, research materials, workshop exercises, and review checklists.</dd>
-              </div>
-              <div>
-                <dt>Method</dt>
-                <dd>Prompt workflow design, limitations review, output checking, and responsible-use guidance.</dd>
-              </div>
-              <div>
-                <dt>Outcome</dt>
-                <dd>Delivered applied training and reusable workflows for research, communication, and teaching contexts.</dd>
-              </div>
-            </dl>
-          </article>
-
-          <article class="case-card">
-            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg></span>HIV Survey Analysis Pipeline</h3>
-            <dl class="case-meta">
-              <div>
-                <dt>Problem</dt>
-                <dd>Survey data needed cleaning, skip-logic handling, feature grouping, modeling, and report-ready outputs.</dd>
-              </div>
-              <div>
-                <dt>Data / Tools</dt>
-                <dd>Python, R, pandas, scikit-learn, statsmodels, dplyr, readxl, broom, flextable, and survey data.</dd>
-              </div>
-              <div>
-                <dt>Method</dt>
-                <dd>Binary and multinomial logistic models, model evaluation, calibration, tables, figures, and automated exports.</dd>
-              </div>
-              <div>
-                <dt>Outcome</dt>
-                <dd>Created reproducible analysis files for cleaned data, model summaries, metrics, figures, and manuscript tables.</dd>
-              </div>
-            </dl>
-          </article>
-
-          <article class="case-card">
-            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v5h5"/><path d="M8 13h8"/></svg></span>Research Reporting and Evaluation Support</h3>
-            <dl class="case-meta">
-              <div>
-                <dt>Problem</dt>
-                <dd>Program and research teams needed data summaries that could support decisions, reports, and grant materials.</dd>
-              </div>
-              <div>
-                <dt>Data / Tools</dt>
-                <dd>Program data, survey data, R, SPSS, database files, statistical tables, and stakeholder-facing reports.</dd>
-              </div>
-              <div>
-                <dt>Method</dt>
-                <dd>Data cleaning, descriptive analysis, statistical modeling, evaluation framing, and plain-language synthesis.</dd>
-              </div>
-              <div>
-                <dt>Outcome</dt>
-                <dd>Produced analysis, reporting, and presentation materials for public health, research, and evaluation use cases.</dd>
-              </div>
-            </dl>
-          </article>
+        <div class="mini-stats">
+          <div class="stat"><strong>Public Health Research</strong><span>HIV prevention, chronic disease, and population health</span></div>
+          <div class="stat"><strong>Evaluation + Reporting</strong><span>Program reporting, grant support, and data storytelling</span></div>
+          <div class="stat"><strong>AI Workshops</strong><span>Responsible AI training for research and organizational workflows</span></div>
         </div>
       </section>
 
-      <section class="section dark reveal" id="roles">
+      <section class="section dark reveal" id="work">
         <div class="section-head">
           <div>
-            <p class="kicker">Good-Fit Roles</p>
-            <h2>Where this profile fits best.</h2>
+            <p class="kicker">Work</p>
+            <h2>Choose a focus area.</h2>
           </div>
-          <p>
-            The strongest lane is applied AI and data science in research,
-            public health, evaluation, education, and responsible AI adoption.
-          </p>
+          <p>Explore the main areas where I support research teams, public health organizations, students, and community partners.</p>
         </div>
 
-        <div class="role-grid" aria-label="Good-fit roles">
-          <span class="role-card">Applied AI Data Scientist</span>
-          <span class="role-card">Public Health Data Scientist</span>
-          <span class="role-card">Health AI Research Scientist</span>
-          <span class="role-card">Research Data Scientist</span>
-          <span class="role-card">Quantitative Research Scientist</span>
-          <span class="role-card">Evaluation Data Scientist</span>
-          <span class="role-card">Responsible AI Specialist</span>
-          <span class="role-card">LLM Workflow Consultant</span>
-          <span class="role-card">AI Training Lead</span>
-        </div>
-      </section>
+        <div class="tabs">
+          <div class="tab-list" role="tablist" aria-label="Work focus areas">
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="tab-data" id="tab-data-button" data-tab="tab-data">Data Analysis</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-health" id="tab-health-button" data-tab="tab-health" tabindex="-1">Public Health</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ai" id="tab-ai-button" data-tab="tab-ai" tabindex="-1">Generative AI</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-teaching" id="tab-teaching-button" data-tab="tab-teaching" tabindex="-1">Teaching</button>
+          </div>
 
-      <section class="section reveal" id="cv-map">
-            <div class="cv-card-body">
-              <p>Applied demography, public health research, quantitative methods, evaluation, teaching, and generative AI.</p>
-              <p>Applied demography, public health research, quantitative methods, evaluation, teaching, and applied AI workflows.</p>
-            </div>
-              <ul>
-                <li>Generative AI for research and public health practice</li>
-                <li>Applied AI and LLM workflows for research and public health practice</li>
-                <li>Quantitative analysis, database management, and reporting</li>
-                <li>Evaluation, grants, teaching, and public health messaging</li>
-                <li>Evaluation, grants, teaching, and research communication</li>
-              </ul>
-            <div class="cv-card-body">
-              <p>Sessions on generative AI, ChatGPT, public health, statistics, SPSS syntax, academic writing, and professional development.</p>
-              <p>Sessions on applied AI, ChatGPT, DALL-E, custom chatbots, public health, statistics, SPSS syntax, academic writing, and professional development.</p>
-            </div>
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
-              Generative AI
-              Applied AI
-            </button>
+          <div>
+            <article class="tab-panel" role="tabpanel" id="tab-data" aria-labelledby="tab-data-button">
               <h3>Data Analysis and Reporting</h3>
-              <p>Quantitative analysis, demographic methods, survey analysis, database management, and reporting for research and program decisions.</p>
-              <p>Python, R, SQL, and SPSS-supported analysis workflows for survey data, demographic questions, program evaluation, and research reporting.</p>
+              <p>Quantitative analysis, demographic methods, survey analysis, database cleanup, and reporting for research and program decisions.</p>
               <div class="tab-points">
-                <div class="point"><strong>Methods</strong><span>Survey and demographic analysis</span></div>
-                <div class="point"><strong>Systems</strong><span>Database management and cleanup</span></div>
-                <div class="point"><strong>Outputs</strong><span>Reports, tables, summaries, and presentations</span></div>
-                <div class="point"><strong>Methods</strong><span>Survey analysis, logistic models, and demographic analysis</span></div>
-                <div class="point"><strong>Systems</strong><span>Data cleaning, database management, and reproducible files</span></div>
-                <div class="point"><strong>Outputs</strong><span>Model summaries, tables, reports, figures, and presentations</span></div>
+                <div class="point"><strong>Methods</strong><span>Survey, demographic, and program data analysis</span></div>
+                <div class="point"><strong>Systems</strong><span>Database cleanup, organization, and quality checks</span></div>
+                <div class="point"><strong>Outputs</strong><span>Reports, tables, summaries, dashboards, and presentations</span></div>
               </div>
+            </article>
+
+            <article class="tab-panel" role="tabpanel" id="tab-health" aria-labelledby="tab-health-button" hidden>
+              <h3>Public Health Research</h3>
+              <p>Applied work in HIV prevention, chronic disease prevention, population health, sexual health, and public health programs.</p>
+              <div class="tab-points">
+                <div class="point"><strong>Topics</strong><span>HIV, chronic disease, prevention, and population health</span></div>
+                <div class="point"><strong>Practice</strong><span>Program design, measurement, and evaluation support</span></div>
+                <div class="point"><strong>Communication</strong><span>Plain-language findings for public health audiences</span></div>
+              </div>
+            </article>
+
             <article class="tab-panel" role="tabpanel" id="tab-ai" aria-labelledby="tab-ai-button" hidden>
               <h3>Generative AI</h3>
-              <p>Training, prompt design, responsible use guidance, and AI-supported workflows for research, teaching, and organizational work.</p>
-              <h3>Applied AI &amp; LLM Workflows</h3>
-              <p>Designed and taught applied generative AI workshops for research, public service, and teaching contexts, including prompt design, chatbot development, AI-generated text and image workflows, and responsible-use guidance.</p>
+              <p>Training, prompt design, responsible-use guidance, and AI-supported workflows for research, teaching, and organizational work.</p>
               <div class="tab-points">
-                <div class="point"><strong>Training</strong><span>Introductory and applied workshops</span></div>
-                <div class="point"><strong>Workflow</strong><span>Prompting and process design</span></div>
-                <div class="point"><strong>Use</strong><span>Research, writing, teaching, and operations</span></div>
-                <div class="point"><strong>LLM workflows</strong><span>Process design for research, writing, teaching, and operations</span></div>
-                <div class="point"><strong>Prompting</strong><span>Prompt engineering, testing, and output review</span></div>
-                <div class="point"><strong>Chatbots</strong><span>Custom GPT and chatbot design for guided tasks</span></div>
-                <div class="point"><strong>Training</strong><span>Applied workshops for research teams and public service users</span></div>
-                <div class="point"><strong>Guardrails</strong><span>Responsible-use guidance, limitations, and quality control</span></div>
-                <div class="point"><strong>Automation</strong><span>Data-to-report workflows and reusable support materials</span></div>
+                <div class="point"><strong>Training</strong><span>Introductory and applied AI workshops</span></div>
+                <div class="point"><strong>Workflow</strong><span>Prompting, documentation, and repeatable process design</span></div>
+                <div class="point"><strong>Use</strong><span>Research, writing, teaching, reporting, and operations</span></div>
               </div>
+            </article>
+
+            <article class="tab-panel" role="tabpanel" id="tab-teaching" aria-labelledby="tab-teaching-button" hidden>
               <h3>Teaching and Workshops</h3>
               <p>Courses and workshops in statistics, database management, quantitative analysis, public health messaging, and AI.</p>
-              <p>Courses and workshops in statistics, database management, quantitative analysis, public health communication, SPSS syntax, and applied AI.</p>
               <div class="tab-points">
-          <article class="service-card">
-            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><circle cx="12" cy="12" r="3"/></svg></span>AI Training</h3>
-            <h3><span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><circle cx="12" cy="12" r="3"/></svg></span>Applied AI &amp; LLM Workflows</h3>
-            <ul>
-              <li>Introductory workshops</li>
-              <li>Responsible use guidance</li>
-              <li>Workflow and prompt support</li>
-              <li>Prompt design and evaluation</li>
-              <li>Responsible-use guidance</li>
-              <li>Custom chatbot and workflow support</li>
-            </ul>
-            <p>
-              For consulting, research collaboration, evaluation, AI training,
-              data analysis, grant support, or public health work.
-              For applied AI work, research collaboration, evaluation, data analysis,
-              grant support, public health projects, or technical training.
-            </p>
-            </a>
-            <a class="button secondary" href="AJ-Delgado-CV.pdf">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-              Download CV
-            </a>
-            <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-              View CV
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6v20h12V8z"/><path d="M14 2v6h4"/><path d="M9 15h6"/><path d="M9 18h4"/></svg>
-              Full CV
-            </a>
+                <div class="point"><strong>Courses</strong><span>Data, methods, and public health communication</span></div>
+                <div class="point"><strong>Workshops</strong><span>Statistics, SPSS, AI, and applied analysis</span></div>
+                <div class="point"><strong>Mentoring</strong><span>Student research and technical skill building</span></div>
+              </div>
+            </article>
           </div>
-          <p>I work with organizations and research teams that need support with data, evaluation, public health strategy, and AI training.</p>
-          <p>I work with organizations and research teams that need support with data, evaluation, public health strategy, applied AI workflows, and technical training.</p>
         </div>
+      </section>
 
-    const selectTab = (button) => {
+      <section class="section reveal" id="research">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Research</p>
+            <h2>Selected research examples.</h2>
+          </div>
+          <p>Examples from my publication and research record.</p>
+        </div>
+        <div class="research-grid">
+          <article class="research-card"><span class="year">2026</span><h3>HIV status in Bexar County, Texas</h3><p>PLOS ONE research examining HIV status, demographics, and sexual health behavior patterns among men in Bexar County, Texas.</p></article>
+          <article class="research-card"><span class="year">2025</span><h3>Resilience and trauma research</h3><p>Collaborative research using a group-based approach to examine resilience and trauma-related patterns.</p></article>
+          <article class="research-card"><span class="year">2023</span><h3>The State of HIV</h3><p>Doctoral dissertation focused on the Ending the HIV Epidemic initiative in the United States.</p></article>
+          <article class="research-card"><span class="year">2018</span><h3>Social norms and oral PrEP use</h3><p>AIDS and Behavior publication on PrEP-related norms among men who have sex with men in Texas.</p></article>
+          <article class="research-card"><span class="year">2016</span><h3>Stress and health among servicemen</h3><p>Journal article on stress, sexual health, and behavioral health among servicemen.</p></article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="services">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Services</p>
+            <h2>Ways to work together.</h2>
+          </div>
+          <p>I support organizations and research teams that need practical help with data, evaluation, reporting, public health strategy, and AI training.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><h3>Evaluation and Reporting</h3><ul><li>Evaluation plans and measurement frameworks</li><li>Dashboards, summaries, and stakeholder-ready reports</li><li>Grant reporting and program documentation</li></ul></article>
+          <article class="service-card"><h3>Research Support</h3><ul><li>Quantitative methods and survey analysis</li><li>Data management, cleaning, and interpretation</li><li>Manuscript, presentation, and dissemination support</li></ul></article>
+          <article class="service-card"><h3>AI Training</h3><ul><li>Introductory and applied AI workshops</li><li>Responsible-use guidance for teams and classrooms</li><li>AI workflow design for research and operations</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section dark reveal" id="contact">
+        <div class="contact-section">
+          <div>
+            <p class="kicker">Contact</p>
+            <h2>Let’s talk about your project.</h2>
+            <p>Need help with evaluation, research, reporting, grants, data analysis, public health strategy, or AI training? Send a note and I’ll follow up.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button" href="mailto:adelgado@sigresults.com">Book a Consultation</a>
+            <a class="button secondary" href="https://drive.google.com/file/d/16d8KwYn4B9EkSo6Sk4rM4YK7Yk6d-tg5/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+            <a class="button secondary" href="https://hcap.utsa.edu/faculty/profiles/delgado-aj.html" target="_blank" rel="noopener">Academic Profile</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/adolphdelgado/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" aria-labelledby="next-step-title">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Next Step</p>
+            <h2 id="next-step-title">Ready to make your data more useful?</h2>
+          </div>
+          <p>Available for evaluation, public health research, AI workshops, grant support, and applied data analysis.</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="mailto:adelgado@sigresults.com">Schedule a Conversation</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 Adolph &quot;AJ&quot; Delgado, PhD. Significant Results LLC.
+    </div>
+  </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    function activateTab(button) {
       const target = button.dataset.tab;
 
       tabButtons.forEach((item) => {
@@ -465,59 +899,28 @@
       tabPanels.forEach((panel) => {
         panel.hidden = panel.id !== target;
       });
-    };
+    }
 
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const target = button.dataset.tab;
-        selectTab(button);
-      });
+    tabButtons.forEach((button, index) => {
+      button.addEventListener("click", () => activateTab(button));
 
-        tabButtons.forEach((item) => {
-          const selected = item === button;
-          item.classList.toggle("active", selected);
-          item.setAttribute("aria-selected", String(selected));
-        });
       button.addEventListener("keydown", (event) => {
-        const keys = ["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft", "Home", "End"];
-        if (!keys.includes(event.key)) return;
+        const lastIndex = tabButtons.length - 1;
+        let nextIndex = index;
 
-        event.preventDefault();
-        const buttons = [...tabButtons];
-        const currentIndex = buttons.indexOf(button);
-        let nextIndex = currentIndex;
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") nextIndex = index === lastIndex ? 0 : index + 1;
+        if (event.key === "ArrowUp" || event.key === "ArrowLeft") nextIndex = index === 0 ? lastIndex : index - 1;
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = lastIndex;
 
-        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-          nextIndex = (currentIndex + 1) % buttons.length;
-        }
-
-        if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-          nextIndex = (currentIndex - 1 + buttons.length) % buttons.length;
-        }
-
-        if (event.key === "Home") {
-          nextIndex = 0;
-        }
-
-        tabPanels.forEach((panel) => {
-          panel.hidden = panel.id !== target;
-        });
-        if (event.key === "End") {
-          nextIndex = buttons.length - 1;
-        }
-
-        buttons[nextIndex].focus();
-        selectTab(buttons[nextIndex]);
-      });
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
+        if (nextIndex !== index) {
+          event.preventDefault();
+          tabButtons[nextIndex].focus();
+          activateTab(tabButtons[nextIndex]);
         }
       });
-    }, { threshold: 0.12 });
+    });
+
     if ("IntersectionObserver" in window) {
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -528,9 +931,6 @@
         });
       }, { threshold: 0.12 });
 
-    document.querySelectorAll(".reveal").forEach((element) => {
-      revealObserver.observe(element);
-    });
       document.querySelectorAll(".reveal").forEach((element) => {
         revealObserver.observe(element);
       });
@@ -540,52 +940,24 @@
       });
     }
 
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const sections = [...navLinks]
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
 
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
     if ("IntersectionObserver" in window) {
       const navObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
 
-        navLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
           navLinks.forEach((link) => {
             link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
           });
         });
-      });
-    }, { rootMargin: "-40% 0px -50% 0px" });
       }, { rootMargin: "-40% 0px -50% 0px" });
 
-    sections.forEach((section) => navObserver.observe(section));
       sections.forEach((section) => navObserver.observe(section));
     }
   </script>
-
-    tabButtons.forEach((button) => {
-    tabButtons.forEach((button, index) => {
-      button.setAttribute("tabindex", index === 0 ? "0" : "-1");
-
-      button.addEventListener("click", () => {
-        <p>
-          I use statistical modeling, demographic methods, and generative AI workflows
-          I use statistical modeling, demographic methods, and applied AI workflows
-          to help research teams, public health organizations, and program partners
-              <h3>Applied AI &amp; LLM Workflows</h3>
-              <p>Designed and taught applied generative AI workshops for research, public service, and teaching contexts, including prompt design, chatbot development, AI-generated text and image workflows, and responsible-use guidance.</p>
-              <p>Designed and taught applied AI workshops for research, public service, and teaching contexts, including prompt design, chatbot development, AI-generated text and image workflows, and responsible-use guidance.</p>
-              <div class="tab-points">
-          </a>
-          <a class="button secondary" href="AJ-Delgado-CV.pdf">
-          <a class="button secondary" href="https://hcap.utsa.edu/faculty/cvs/delgado-cv-25.pdf" target="_blank" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-        </a>
-        <a class="quick-link" href="AJ-Delgado-CV.pdf">
-        <a class="quick-link" href="https://hcap.utsa.edu/faculty/cvs/delgado-cv-25.pdf" target="_blank" rel="noopener">
-          <span>CV PDF</span>
-            </a>
-            <a class="button secondary" href="AJ-Delgado-CV.pdf">
-            <a class="button secondary" href="https://hcap.utsa.edu/faculty/cvs/delgado-cv-25.pdf" target="_blank" rel="noopener">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+</body>
+</html>
